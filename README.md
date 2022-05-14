@@ -1,3 +1,3 @@
 # Ducktors
 
-This project is about my thesis project done together with my friends.
+This project is about my thesis done together with my friends.
