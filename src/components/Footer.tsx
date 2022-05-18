@@ -13,7 +13,6 @@ import {
   } from '@chakra-ui/react';
   import { ReactNode } from 'react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-  import { BiMailSend } from 'react-icons/bi';
   
   const Logo = (props: any) => {
     return (
@@ -116,28 +115,6 @@ import {
               <Link href={'#'}>Legal</Link>
               <Link href={'#'}>Privacy Policy</Link>
               <Link href={'#'}>Satus</Link>
-            </Stack>
-            <Stack align={'flex-start'}>
-              <ListHeader>Stay up to date</ListHeader>
-              <Stack direction={'row'}>
-                <Input
-                  placeholder={'Your email address'}
-                  bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-                  border={0}
-                  _focus={{
-                    bg: 'whiteAlpha.300',
-                  }}
-                />
-                <IconButton
-                  bg={useColorModeValue('green.400', 'green.800')}
-                  color={useColorModeValue('white', 'gray.800')}
-                  _hover={{
-                    bg: 'green.600',
-                  }}
-                  aria-label="Subscribe"
-                  icon={<BiMailSend />}
-                />
-              </Stack>
             </Stack>
           </SimpleGrid>
         </Container>
