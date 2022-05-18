@@ -1,15 +1,19 @@
 import './App.css';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 import Navbar from './components/Navbar.tsx';
-import Footer from './components/Footer.tsx'
+import Features from './components/Features.tsx';
+import Footer from './components/Footer.tsx';
+import Carousel from './components/Carousel.tsx';
 
 function App() {
   return (
     <div className="App">
-          <ChakraProvider>
+    <ChakraProvider>
       <Navbar />
-      <Footer />
-      </ChakraProvider>
+      <Carousel/>
+      <Features/>
+      <Footer/>
+    </ChakraProvider>
     </div>
     
   );
