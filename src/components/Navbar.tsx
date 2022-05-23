@@ -25,9 +25,6 @@ export default function Nav() {
       <Box bg={useColorModeValue('white', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box mr='5'>Ducktors</Box>
-
-
-
               <Stack
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}

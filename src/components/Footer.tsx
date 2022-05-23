@@ -10,7 +10,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Logo = (props: any) => {
   return (
@@ -84,34 +84,31 @@ export default function LargeWithNewsletter() {
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'}>
-              © 2022 Chakra Templates. All rights reserved
+              © 2022 Ducktors. Todos os direitos reservados.
             </Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton label={'Twitter'} href={'#'}>
+              <SocialButton label={'Twitter'} href={'https://twitter.com/ducktorswebsite'}>
                 <FaTwitter />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
+              <SocialButton label={'Instagram'} href={'https://www.instagram.com/ducktorswebsite/'}>
                 <FaInstagram />
               </SocialButton>
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About us</Link>
+            <ListHeader>Empresa</ListHeader>
+            <Link href={'#'}>Sobre</Link>
+            <Link href={'#'}>Contato</Link>
             <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Testimonials</Link>
+            <Link href={'#'}>Segurança</Link>
+            <Link href={'#'}>Desenvolvedores</Link>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Legal</Link>
-            <Link href={'#'}>Privacy Policy</Link>
+            <ListHeader>Suporte</ListHeader>
+            <Link href={'#'}>Central de ajuda</Link>
+            <Link href={'#'}>Termos de serviço</Link>
+            <Link href={'#'}>Politica de moderação</Link>
+            <Link href={'#'}>Política de privacidade</Link>
             <Link href={'#'}>Status</Link>
           </Stack>
         </SimpleGrid>
