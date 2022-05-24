@@ -1,8 +1,8 @@
 import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import Navbar from './components/Navbar.tsx';
-import Features from './components/Features.tsx';
 import Footer from './components/Footer.tsx';
+import Article from './components/Article.tsx';
 import Carousel from './components/Carousel.tsx';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
       <Navbar />
       <Carousel/>
-      <Features/>
+      <Article/>
       <Footer/>
     </ChakraProvider>
     </div>
