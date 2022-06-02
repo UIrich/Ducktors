@@ -10,6 +10,8 @@ import {
   MenuItem,
   MenuDivider,
   MenuList,
+  Link,
+  Text,
   Input,
   InputGroup,
   InputLeftElement,
@@ -24,7 +26,14 @@ export default function Nav() {
     <>
       <Box bg={useColorModeValue('white', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box mr='5'>Ducktors</Box>
+          <Box mr='5'>
+            <Text
+            fontWeight={'bold'}>
+            <Link href='#'>
+            Ducktors
+            </Link>
+            </Text>
+            </Box>
               <Stack
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
@@ -37,7 +46,7 @@ export default function Nav() {
                 pointerEvents='none'
                 children={<SearchIcon color='gray.500' />}
             />
-            <Input type='text' borderRadius='20' fontSize='md' placeholder='Search' width='sm' />
+            <Input type='text' borderRadius='20' fontSize='md' placeholder='Buscar' width='sm' />
           </InputGroup>
         </Stack>
           <Button
@@ -68,9 +77,7 @@ export default function Nav() {
                 minW={0}>
                 <Avatar
                   size={'sm'}
-                  src={
-                    'idk'
-                  }
+                  src={'https://i.imgur.com/uYa8QvT.png'}
                 />
               </MenuButton>
               <MenuList>

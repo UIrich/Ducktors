@@ -24,7 +24,7 @@ const BlogTags: React.FC<IBlogTags> = (props) => {
     <HStack spacing={2} marginTop={props.marginTop}>
       {props.tags.map((tag) => {
         return (
-          <Tag size={'md'} variant="solid" colorScheme="orange" key={tag}>
+          <Tag size={'md'} variant="solid" colorScheme="blue" key={tag}>
             {tag}
           </Tag>
         );
@@ -44,7 +44,7 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
       <Image
         borderRadius="full"
         boxSize="40px"
-        src="https://100k-faces.glitch.me/random-image"
+        src="https://i.pinimg.com/474x/42/e3/b5/42e3b5d28b8754b17c4f6b9937dc615e.jpg"
         alt={`Avatar of ${props.name}`}
       />
       <Text fontWeight="medium">{props.name}</Text>
@@ -75,9 +75,9 @@ const ArticleList = () => {
                 <Image
                   transform="scale(1.0)"
                   src={
-                    'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
+                    'https://occ-0-586-590.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABfgIGiaJ-tp1c4rvM6Z-RKoCamah-7EBQmlf3FY818saiYEQvlgzzrcTZ8i0sqbzoh34jUNGjSDbWALY6NKG2n31MvAl-34ZgORe.jpg?r=12f'
                   }
-                  alt="some text"
+                  alt="Trigun"
                   objectFit="contain"
                   width="100%"
                   transition="0.3s ease-in-out"
@@ -87,21 +87,18 @@ const ArticleList = () => {
                 />
               </Link>
             </Box>
-            <BlogTags tags={['Engineering', 'Product']} marginTop="3" />
+            <BlogTags tags={['Anime']} marginTop="3" />
             <Heading fontSize="xl" marginTop="2">
               <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                Some blog title
+                Um clássico dos animes
               </Link>
             </Heading>
             <Text as="p" fontSize="md" marginTop="2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+            Trigun é um anime de 1998, adaptado do mangá de Yasuhiro Nightow, é um western de ficção científica e rock'n roll, e um clássico amado por muitos fãs.
             </Text>
-            <BlogAuthor
-              name="John Doe"
-              date={new Date('2021-04-06T19:01:27Z')}
+            <BlogAuthor 
+              name="Ulrich"
+              date={new Date('2022-06-08T19:01:27Z')}
             />
           </Box>
         </WrapItem>
