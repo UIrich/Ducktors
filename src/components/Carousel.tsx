@@ -44,15 +44,15 @@ export default function CaptionCarousel() {
       text:
         "",
       image:
-        'https://steamuserimages-a.akamaihd.net/ugc/1758073114103109159/20B042641BF6359FEE0D9E96CE7D62205EB179A3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false',
+        'https://i.imgur.com/7TSzcZ1.png',
     },
     {
       image:
-        'https://i.imgur.com/puFdjTT.jpg',
+        'https://i.imgur.com/RJ3YKds.jpg',
     },
     {
       image:
-        'https://images3.alphacoders.com/121/1219181.jpg',
+        'https://i.imgur.com/PcNmqz5.jpg',
     },
   ];
 
@@ -103,7 +103,7 @@ export default function CaptionCarousel() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height={'4xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
