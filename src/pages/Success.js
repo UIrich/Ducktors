@@ -1,16 +1,16 @@
 import '../App.css';
-import Reset from '../components/Reset.tsx';
+import Success from '../components/Success.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function ResetPassword() {
+function SuccessPage() {
     return (
-    <div class="Reset">
+    <div class="Success">
     <ChakraProvider>
-        <Reset/>
+        <Success/>
     </ChakraProvider>
     </div>
 
     );
 }
 
-export default ResetPassword;
+export default SuccessPage;

@@ -1,16 +1,16 @@
 import '../App.css';
-import Reset from '../components/Reset.tsx';
+import Nowhere from '../components/Nowhere.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function ResetPassword() {
+function Empty() {
     return (
-    <div class="Reset">
+    <div class="Empty">
     <ChakraProvider>
-        <Reset/>
+        <Nowhere/>
     </ChakraProvider>
     </div>
 
     );
 }
 
-export default ResetPassword;
+export default Empty;

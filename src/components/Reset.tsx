@@ -32,7 +32,7 @@ import {
           <FormControl id="email" isRequired>
             <FormLabel>Endereço de e-mail</FormLabel>
             <Input
-              placeholder="your-email@example.com"
+              placeholder="seu-email@exemplo.com"
               _placeholder={{ color: 'gray.500' }}
               type="email"
             />

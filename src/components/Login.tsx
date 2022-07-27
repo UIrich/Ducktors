@@ -45,7 +45,7 @@ import {
                   align={'start'}
                   justify={'space-between'}>
                   <Checkbox>Lembre-me</Checkbox>
-                  <Link as={RouteLink} to='/reset' color={'blue.400'}>Esqueceu a senha?</Link>
+                  <Link as={RouteLink} to='/forgot' color={'blue.400'}>Esqueceu a senha?</Link>
                 </Stack>
                 <Button
                   bg={'blue.400'}
