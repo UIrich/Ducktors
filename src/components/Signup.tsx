@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { Link as RouteLink } from "react-router-dom";
   import React from 'react';
   
   export default function SignupCard() {
@@ -39,14 +40,10 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-              <HStack>
-                <Box>
                   <FormControl id="nick" isRequired>
                     <FormLabel>Nick</FormLabel>
                     <Input type="text" />
                   </FormControl>
-                </Box>
-              </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>E-mail</FormLabel>
                 <Input type="email" />
@@ -80,7 +77,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Já é um usuário? <Link color={'blue.400'}>Logar</Link>
+                  Já é um usuário? <Link as={RouteLink} to='/login' color={'blue.400'}>Logar</Link>
                 </Text>
               </Stack>
             </Stack>

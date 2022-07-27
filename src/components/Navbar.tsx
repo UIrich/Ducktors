@@ -10,13 +10,14 @@ import {
   MenuItem,
   MenuDivider,
   MenuList,
-  Link,
   Text,
   Input,
+  Link,
   InputGroup,
   InputLeftElement,
   useColorMode,
 } from '@chakra-ui/react';
+import { Link as RouteLink } from "react-router-dom";
 import { QuestionIcon, SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import React from 'react';
 
@@ -30,7 +31,7 @@ export default function Nav() {
           <Box mr='5'>
             <Text
             fontWeight={'bold'}>
-            <Link href='#'>
+            <Link as={RouteLink} to='/'>
             Ducktors
             </Link>
             </Text>
@@ -55,15 +56,17 @@ export default function Nav() {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}>
+            href={'/login'}>
             Logar
           </Button>
           <Button
+            as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
             color={'white'}
             bg={'blue.400'}
+            href='/registrar'
             _hover={{
               bg: 'blue.600',
             }}>
