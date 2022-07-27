@@ -1,4 +1,5 @@
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
+import React from 'react';
 
 export default function NotFound() {
   return (
@@ -15,7 +16,7 @@ export default function NotFound() {
         Page Not Found
       </Text>
       <Text color={'gray.500'} mb={6}>
-        The page you're looking for does not seem to exist
+        The page you're looking for does not seem to exist.
       </Text>
 
       <Button
@@ -23,7 +24,7 @@ export default function NotFound() {
         bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
         color="white"
         variant="solid">
-        Go to Home
+        Voltar
       </Button>
     </Box>
   );

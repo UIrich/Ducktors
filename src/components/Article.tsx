@@ -103,6 +103,46 @@ const ArticleList = () => {
           </Box>
         </WrapItem>
       </Wrap>
+      <Heading as="h2" marginTop="5">
+        Postagens mais lidas
+      </Heading>
+      <Divider marginTop="5" />
+      <Wrap spacing="30px" marginTop="5">
+        <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
+          <Box w="100%">
+            <Box borderRadius="lg" overflow="hidden">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                <Image
+                  transform="scale(1.0)"
+                  src={
+                    'https://occ-0-586-590.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABfgIGiaJ-tp1c4rvM6Z-RKoCamah-7EBQmlf3FY818saiYEQvlgzzrcTZ8i0sqbzoh34jUNGjSDbWALY6NKG2n31MvAl-34ZgORe.jpg?r=12f'
+                  }
+                  alt="Trigun"
+                  objectFit="contain"
+                  width="100%"
+                  transition="0.3s ease-in-out"
+                  _hover={{
+                    transform: 'scale(1.05)',
+                  }}
+                />
+              </Link>
+            </Box>
+            <BlogTags tags={['Anime']} marginTop="3" />
+            <Heading fontSize="xl" marginTop="2">
+              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
+                Um clássico dos animes
+              </Link>
+            </Heading>
+            <Text as="p" fontSize="md" marginTop="2">
+            Trigun é um anime de 1998, adaptado do mangá de Yasuhiro Nightow, é um western de ficção científica e rock'n roll, e um clássico amado por muitos fãs.
+            </Text>
+            <BlogAuthor 
+              name="Ulrich"
+              date={new Date('2022-06-08T19:01:27Z')}
+            />
+          </Box>
+        </WrapItem>
+      </Wrap>
     </Container>
   );
 };

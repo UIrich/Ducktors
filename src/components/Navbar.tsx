@@ -18,6 +18,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { QuestionIcon, SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import React from 'react';
 
 
 export default function Nav() {

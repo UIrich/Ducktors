@@ -8,6 +8,7 @@ import {
     Stack,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import React from 'react';
   
   export default function ResetPasswordForm(): JSX.Element {
     return (
@@ -26,10 +27,10 @@ import {
           p={6}
           my={12}>
           <Heading lineHeight={1.1} fontSize={{ base: '2xl', md: '3xl' }}>
-            Enter new password
+            Coloque uma senha nova
           </Heading>
           <FormControl id="email" isRequired>
-            <FormLabel>Email address</FormLabel>
+            <FormLabel>Endereço de e-mail</FormLabel>
             <Input
               placeholder="your-email@example.com"
               _placeholder={{ color: 'gray.500' }}
@@ -37,7 +38,7 @@ import {
             />
           </FormControl>
           <FormControl id="password" isRequired>
-            <FormLabel>Password</FormLabel>
+            <FormLabel>Senha</FormLabel>
             <Input type="password" />
           </FormControl>
           <Stack spacing={6}>
@@ -47,7 +48,7 @@ import {
               _hover={{
                 bg: 'blue.500',
               }}>
-              Submit
+              Enviar
             </Button>
           </Stack>
         </Stack>
