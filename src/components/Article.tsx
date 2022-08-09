@@ -93,9 +93,6 @@ const ArticleList = () => {
                 Um clássico dos animes
               </Link>
             </Heading>
-            <Text as="p" fontSize="md" marginTop="2">
-            Trigun é um anime de 1998, adaptado do mangá de Yasuhiro Nightow, é um western de ficção científica e rock'n roll, e um clássico amado por muitos fãs.
-            </Text>
             <BlogAuthor 
               name="Ulrich"
               date={new Date('2022-06-08T19:01:27Z')}
@@ -133,9 +130,6 @@ const ArticleList = () => {
                 Um clássico dos animes
               </Link>
             </Heading>
-            <Text as="p" fontSize="md" marginTop="2">
-            Trigun é um anime de 1998, adaptado do mangá de Yasuhiro Nightow, é um western de ficção científica e rock'n roll, e um clássico amado por muitos fãs.
-            </Text>
             <BlogAuthor 
               name="Ulrich"
               date={new Date('2022-06-08T19:01:27Z')}
