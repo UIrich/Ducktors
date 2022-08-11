@@ -1,8 +1,7 @@
-import '../App.css';
-import Error from '../components/Error.tsx';
+import Error from '../components/Info/Error.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function Error404() {
+function ErrorResult() {
     return (
     <div class="Error">
     <ChakraProvider>
@@ -13,4 +12,4 @@ function Error404() {
     );
 }
 
-export default Error404;
+export default ErrorResult;

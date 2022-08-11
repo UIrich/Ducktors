@@ -1,16 +1,15 @@
-import '../App.css';
-import Login from '../components/Login.tsx';
+import LoginCard from '../components/Login/Login.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function WebLogin() {
+function Login() {
     return (
     <div class="Login">
     <ChakraProvider>
-        <Login/>
+        <LoginCard/>
     </ChakraProvider>
     </div>
 
     );
 }
 
-export default WebLogin;
+export default Login;

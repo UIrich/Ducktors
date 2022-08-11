@@ -1,12 +1,11 @@
-import '../App.css';
-import Unlearnt from '../components/Unlearnt.tsx';
+import ForgotPass from '../components/Login/ForgotPassword.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function ForgotPassword() {
     return (
-    <div class="Forgot">
+    <div class="ForgotPassword">
     <ChakraProvider>
-        <Unlearnt/>
+        <ForgotPass/>
     </ChakraProvider>
     </div>
 

@@ -1,19 +1,19 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const mysql = require("mysql2");
-const PORT = process.env.PORT = 5000;
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import mysql from 'mysql2';
+import { routes } from "./routes.js";
+import { con } from './utils.js'
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "admin",
-    database: "crud"
-})
+const app = express();
+const PORT = process.env.PORT = 5000;
+const db = mysql.createPool(con)
+
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(routes);
 
 app.get("/api/get", (req, res) => {
     const sqlGet = "SELECT * FROM user";
@@ -23,9 +23,9 @@ app.get("/api/get", (req, res) => {
 })
 
 app.post("/api/post", (req, res) => {
-    const {name, email, password, avatar, status, level} = req.body;
-    const sqlInsert = "INSERT INTO user (name, email, password, avatar, status, level) VALUES (?, ?, ?, ?, ?, ?)";
-    db.query(sqlInsert, [name, email, password, avatar, status, level], (error, result) => {
+    const {name, email, password} = req.body;
+    const sqlInsert = "INSERT INTO user (name, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    db.query(sqlInsert, [name, email, password], (error, result) => {
         if (error) {
             console.log(error);
         }
@@ -53,9 +53,9 @@ app.get("/api/get/:id", (req, res) => {
 
 app.put("/api/put/:id", (req, res) => {
     const { id } = req.params;
-    const {name, email, password, avatar, status, level} = req.body;
-    const sqlUpdate = "UPDATE user SET name = ?, email = ?, password = ?, avatar = ?, status = ?, level = ? WHERE id = ?";
-    db.query(sqlUpdate, [name, email, password, avatar, status, level, id], (error, result) => {
+    const {name, email, password} = req.body;
+    const sqlUpdate = "UPDATE user SET name = ?, email = ?, password = ? WHERE id = ?";
+    db.query(sqlUpdate, [name, email, password, id], (error, result) => {
         if(error) {
             console.log(error);
         }

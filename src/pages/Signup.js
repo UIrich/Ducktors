@@ -1,16 +1,16 @@
 import '../App.css';
-import Nowhere from '../components/Nowhere.tsx';
+import SignupCard from '../components/Login/Signup.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function Empty() {
+function Signup() {
     return (
-    <div class="Empty">
+    <div class="Register">
     <ChakraProvider>
-        <Nowhere/>
+        <SignupCard/>
     </ChakraProvider>
     </div>
 
     );
 }
 
-export default Empty;
+export default Signup;

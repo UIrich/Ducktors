@@ -1,12 +1,11 @@
-import '../App.css';
-import Reset from '../components/Reset.tsx';
+import ResetPass from '../components/Login/ResetPassword.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function ResetPassword() {
     return (
-    <div class="Reset">
+    <div class="ResetPassword">
     <ChakraProvider>
-        <Reset/>
+        <ResetPass/>
     </ChakraProvider>
     </div>
 

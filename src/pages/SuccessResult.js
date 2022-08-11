@@ -1,8 +1,7 @@
-import '../App.css';
-import Success from '../components/Success.tsx';
+import Success from '../components/Info/Success.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function SuccessPage() {
+function SuccessResult() {
     return (
     <div class="Success">
     <ChakraProvider>
@@ -13,4 +12,4 @@ function SuccessPage() {
     );
 }
 
-export default SuccessPage;
+export default SuccessResult;

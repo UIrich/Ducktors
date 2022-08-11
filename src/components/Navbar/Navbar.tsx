@@ -66,7 +66,7 @@ export default function Nav() {
             fontWeight={600}
             color={'white'}
             bg={'blue.400'}
-            href='/registrar'
+            href='/signup'
             _hover={{
               bg: 'blue.600',
             }}>
