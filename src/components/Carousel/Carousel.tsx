@@ -4,8 +4,6 @@ import {
   IconButton,
   useBreakpointValue,
   Stack,
-  Heading,
-  Text,
   Container,
 } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
@@ -38,9 +36,6 @@ export default function CaptionCarousel() {
   // This can be static or loaded from a server
   const cards = [
     {
-      title: '',
-      text:
-        "",
       image:
         'https://i.imgur.com/7TSzcZ1.png',
     },
@@ -116,12 +111,6 @@ export default function CaptionCarousel() {
                 position="absolute"
                 top="50%"
                 transform="translate(0, -50%)">
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                  {card.title}
-                </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                  {card.text}
-                </Text>
               </Stack>
             </Container>
           </Box>
