@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar/Navbar.tsx';
-import Footer from '../components/Section/Footer.tsx';
-import Article from '../components/Section/Article.tsx';
+import Footer from '../components/Footer/Footer.tsx';
+import Article from '../components/Section/Section.tsx';
 import Carousel from '../components/Carousel/Carousel.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
