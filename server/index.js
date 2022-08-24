@@ -16,16 +16,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(routes);
 
 app.get("/api/get", (req, res) => {
-    const sqlGet = "SELECT * FROM user";
-    db.query(sqlGet, (error, result) => {
+    const GET = "SELECT * FROM user";
+    db.query(GET, (error, result) => {
         res.send(result);
     });
 })
 
 app.post("/api/post", (req, res) => {
     const {name, email, password} = req.body;
-    const sqlInsert = "INSERT INTO user (name, email, password) VALUES (?, ?, ?, ?, ?, ?)";
-    db.query(sqlInsert, [name, email, password], (error, result) => {
+    const POST = "INSERT INTO user (name, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    db.query(POST, [name, email, password], (error, result) => {
         if (error) {
             console.log(error);
         }
@@ -34,16 +34,16 @@ app.post("/api/post", (req, res) => {
 
 app.post("/api/remove/:id", (req, res) => {
     const { id } = req.params;
-    const sqlRemove = "DELETE FROM user WHERE id = ?";
-    db.query(sqlRemove, id, (error, result) => {
+    const REMOVE = "DELETE FROM user WHERE id = ?";
+    db.query(REMOVE, id, (error, result) => {
 
     });
 })
 
 app.get("/api/get/:id", (req, res) => {
     const { id } = req.params;
-    const sqlGet = "SELECT * FROM user WHERE id = ?";
-    db.query(sqlGet, id, (error, result) => {
+    const GET = "SELECT * FROM user WHERE id = ?";
+    db.query(GET, id, (error, result) => {
         if(error) {
             console.log(error);
         }
@@ -54,8 +54,8 @@ app.get("/api/get/:id", (req, res) => {
 app.put("/api/put/:id", (req, res) => {
     const { id } = req.params;
     const {name, email, password} = req.body;
-    const sqlUpdate = "UPDATE user SET name = ?, email = ?, password = ? WHERE id = ?";
-    db.query(sqlUpdate, [name, email, password, id], (error, result) => {
+    const PUT = "UPDATE user SET name = ?, email = ?, password = ? WHERE id = ?";
+    db.query(PUT, [name, email, password, id], (error, result) => {
         if(error) {
             console.log(error);
         }
