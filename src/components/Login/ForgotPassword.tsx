@@ -10,9 +10,9 @@ import {
   } from '@chakra-ui/react';
   import React from 'react';
   
-  type ForgotPasswordFormInputs = {
-    email: string;
-  };
+  // type ForgotPasswordFormInputs = {
+  //  email: string;
+  // };
   
   export default function ForgotPasswordForm(): JSX.Element {
     return (

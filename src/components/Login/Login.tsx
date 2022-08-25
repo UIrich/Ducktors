@@ -53,7 +53,7 @@ import {
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  Cadastrar
+                  Logar
                 </Button>
               </Stack>
             </Stack>

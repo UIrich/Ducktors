@@ -1,5 +1,7 @@
 import React from "react";
 import { Box, Flex, Image, Link, chakra } from "@chakra-ui/react";
+import PostImage from '../../assets/trigun.svg';
+import AvatarImage from '../../assets/duck.svg';
 
 export default function Article(){
     return (
@@ -16,7 +18,7 @@ export default function Article(){
             <Image
             transform="scale(1.0)"
             src={
-            'https://occ-0-586-590.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABfgIGiaJ-tp1c4rvM6Z-RKoCamah-7EBQmlf3FY818saiYEQvlgzzrcTZ8i0sqbzoh34jUNGjSDbWALY6NKG2n31MvAl-34ZgORe.jpg?r=12f'
+            PostImage
             }
             alt="Trigun"
             objectFit="contain"
@@ -55,7 +57,7 @@ export default function Article(){
                   h={10}
                   fit="cover"
                   rounded="full"
-                  src="https://i.pinimg.com/474x/42/e3/b5/42e3b5d28b8754b17c4f6b9937dc615e.jpg"
+                  src={AvatarImage}
                   alt="Avatar"
                 />
                 <Link

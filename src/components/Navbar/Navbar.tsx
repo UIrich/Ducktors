@@ -20,6 +20,7 @@ import {
 import { Link as RouteLink } from "react-router-dom";
 import { QuestionIcon, SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import React from 'react';
+import Duck from '../../assets/grayduck.svg';
 
 
 export default function Nav() {
@@ -81,7 +82,7 @@ export default function Nav() {
                 minW={0}>
                 <Avatar
                   size={'sm'}
-                  src={'https://i.imgur.com/uYa8QvT.png'}
+                  src={Duck}
                 />
               </MenuButton>
               <MenuList>

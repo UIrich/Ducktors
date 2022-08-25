@@ -8,6 +8,9 @@ import {
 } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
+import WeakOrange from '../../assets/weakorange.svg';
+import StrongOrange from '../../assets/strongorange.svg';
+import Orange from '../../assets/orange.svg';
 
 // Settings for the slider
 const settings = {
@@ -37,15 +40,15 @@ export default function CaptionCarousel() {
   const cards = [
     {
       image:
-        'https://i.imgur.com/7TSzcZ1.png',
+        WeakOrange,
     },
     {
       image:
-        'https://i.imgur.com/RJ3YKds.jpg',
+        Orange,
     },
     {
       image:
-        'https://i.imgur.com/PcNmqz5.jpg',
+        StrongOrange,
     },
   ];
 

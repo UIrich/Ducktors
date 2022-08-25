@@ -13,7 +13,7 @@ import {
 
 const ArticleList = () => {
   return (
-    <Container maxW={'7xl'} p="12">
+    <Container maxW={'6xl'} p="12">
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -23,7 +23,7 @@ const ArticleList = () => {
       <Heading as="h2" marginTop="5">
         Postagem mais lida
       </Heading>
-      <Divider marginTop="5" />
+      <Divider marginTop="5" maxW="5xl"/>
       <Wrap spacing="30px" marginTop="5">
       <ArticleWithImage/>
         <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
@@ -36,30 +36,15 @@ const ArticleList = () => {
       <Heading as="h2" marginTop="5">
         Postagens recentes
       </Heading>
-      <Divider marginTop="5" />
+      <Divider marginTop="5" maxW="5xl" />
       <Wrap spacing="30px" marginTop="5">
-        <SimpleGrid columns={[2, null, 3]} spacing='40px'>
-          <Box w="100%">
+        <SimpleGrid minChildWidth='310px' spacing="40px">
                 <Article/>
-          </Box>
-          <Box w="100%">
                 <Article/>
-        </Box>
-        <Box w="100%">
                 <Article/>
-        </Box>
-        
-          </SimpleGrid>
-          <SimpleGrid columns={[2, null, 3]} spacing='40px'>
-          <Box w="100%">
                 <Article/>
-          </Box>
-          <Box w="100%">
                 <Article/>
-        </Box>
-        <Box w="100%">
                 <Article/>
-        </Box>
           </SimpleGrid>
       </Wrap>
     </Container>
