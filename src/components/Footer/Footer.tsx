@@ -11,6 +11,7 @@ import {
   chakra,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Link as RouteLink } from "react-router-dom";
 import { FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
@@ -62,8 +63,7 @@ export default function LargeWithAppLinksAndSocial() {
           <Stack align={'flex-start'}>
             <ListHeader>Empresa</ListHeader>
             <Link href={'#'}>Sobre</Link>
-            <Link href={'#'}>Contato</Link>
-            <Link href={'#'}>Blog</Link>
+            <Link as={RouteLink} to='/contact'>Contato</Link>
             <Link href={'#'}>Desenvolvedores</Link>
           </Stack>
 
