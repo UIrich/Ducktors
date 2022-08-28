@@ -12,7 +12,9 @@ import ResetPass from './pages/ResetPass.js';
 import SuccessResult from "./pages/SuccessResult";
 import NotFoundResult from "./pages/NotFoundResult";
 import ErrorResult from "./pages/ErrorResult";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Team from "./pages/Team";
 
 export function AppRoutes() {
     return(
@@ -21,7 +23,9 @@ export function AppRoutes() {
             <Route exact path='/' element={<Home/>} />
             <Route exact path='/login' element={<Login/>} />
             <Route exact path='/signup' element={<Signup/>} />
+            <Route exact path='/about' element={<About/>} />
             <Route exact path='/contact' element={<Contact/>} />
+            <Route exact path='/team' element={<Team/>} />
             <Route exact path='/forgotpassword' element={<ForgotPass/>} />
             <Route exact path='/resetpassword' element={<ResetPass/>} />
             <Route exact path='/success' element={<SuccessResult/>} />

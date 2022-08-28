@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Flex,
@@ -19,9 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouteLink } from "react-router-dom";
 import { QuestionIcon, SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import React from 'react';
-import Duck from '../../assets/grayduck.svg';
-
+import UnknownAvatarImage from '../../assets/grayduck.svg';
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -82,7 +81,7 @@ export default function Nav() {
                 minW={0}>
                 <Avatar
                   size={'sm'}
-                  src={Duck}
+                  src={UnknownAvatarImage}
                 />
               </MenuButton>
               <MenuList>

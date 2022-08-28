@@ -18,7 +18,7 @@ import {
     VStack,
   } from '@chakra-ui/react';
   import React from 'react';
-  import { BsPerson, BsTwitter } from 'react-icons/bs';
+  import { BsPerson, BsInstagram,  BsTwitter } from 'react-icons/bs';
   import { MdEmail, MdOutlineEmail } from 'react-icons/md';
   
   const confetti = {
@@ -104,7 +104,21 @@ import {
                       isRound
                     />
                   </Link>
-  
+                      
+                  <Link href="http://instagram.com/ducktorswebsite">
+                  <IconButton
+                    aria-label="instagram"
+                    variant="ghost"
+                    size="lg"
+                    icon={<BsInstagram size="28px" />}
+                    _hover={{
+                      bg: 'blue.500',
+                      color: useColorModeValue('white', 'gray.700'),
+                    }}
+                    isRound
+                  />
+                </Link>
+
                 </Stack>
   
                 <Box
@@ -137,7 +151,7 @@ import {
                     </FormControl>
   
                     <FormControl isRequired>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>Mensagem</FormLabel>
   
                       <Textarea
                         name="message"
