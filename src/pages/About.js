@@ -1,4 +1,3 @@
-
 import Navbar from '../components/Navbar/Navbar.js';
 import Footer from '../components/Footer/Footer.tsx';
 import AboutContainer from '../components/Footer/About.tsx';

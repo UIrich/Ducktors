@@ -15,6 +15,13 @@ import ErrorResult from "./pages/ErrorResult";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Team from "./pages/Team";
+import Terms from "./pages/Terms";
+import Help from "./pages/Help";
+import Security from "./pages/Security";
+import Privacy from "./pages/Privacy";
+import Cookies from "./pages/Cookies";
+import Community from "./pages/Community";
+
 
 export function AppRoutes() {
     return(
@@ -24,6 +31,12 @@ export function AppRoutes() {
             <Route exact path='/login' element={<Login/>} />
             <Route exact path='/signup' element={<Signup/>} />
             <Route exact path='/about' element={<About/>} />
+            <Route exact path='/community' element={<Community/>} />
+            <Route exact path='/help' element={<Help/>} />
+            <Route exact path='/terms' element={<Terms/>} />
+            <Route exact path='/cookies' element={<Cookies/>} />
+            <Route exact path='/privacy' element={<Privacy/>} />
+            <Route exact path='/security' element={<Security/>} />
             <Route exact path='/contact' element={<Contact/>} />
             <Route exact path='/team' element={<Team/>} />
             <Route exact path='/forgotpassword' element={<ForgotPass/>} />

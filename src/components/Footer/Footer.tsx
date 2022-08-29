@@ -63,22 +63,22 @@ export default function LargeWithAppLinksAndSocial() {
           <Stack align={'flex-start'}>
             <ListHeader>Empresa</ListHeader>
             <Link as={RouteLink} to='/about'>Sobre</Link>
-            <Link as={RouteLink} to='/contact'>Contato</Link>
             <Link as={RouteLink} to='/team'>Equipe</Link>
+            <Link as={RouteLink} to='/contact'>Contato</Link>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Suporte</ListHeader>
-            <Link href={'#'}>Central de ajuda</Link>
-            <Link href={'#'}>Termos de serviço</Link>
-            <Link href={'#'}>Política da comunidade</Link>
+            <Link as={RouteLink} to='/help'>Central de ajuda</Link>
+            <Link as={RouteLink} to='/terms'>Termos de serviço</Link>
+            <Link as={RouteLink} to='/community'>Política da comunidade</Link>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Legal</ListHeader>
-            <Link href={'#'}>Segurança</Link>
-            <Link href={'#'}>Política de privacidade</Link>
-            <Link href={'#'}>Política de cookies</Link>
+            <Link as={RouteLink} to='/security'>Segurança</Link>
+            <Link as={RouteLink} to='/privacy'>Política de privacidade</Link>
+            <Link as={RouteLink} to='/cookies'>Política de cookies</Link>
           </Stack>
         </SimpleGrid>
       </Container>
