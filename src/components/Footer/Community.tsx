@@ -31,7 +31,6 @@ const Community = () => {
         </Text>
         </Text>
         </Text>
-
       </Wrap>
     </Container>
   );

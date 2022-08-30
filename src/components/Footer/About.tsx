@@ -28,7 +28,6 @@ const About = () => {
         fontSize={'lg'}>
             A Ducktors é uma rede social voltada ao mundo geek, no qual os indivíduos desse "mundo" se interessam por tudo que está relacionado à tecnologia e eletrônica.
         </Text>
-
       </Wrap>
     </Container>
   );

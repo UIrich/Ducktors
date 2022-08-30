@@ -28,7 +28,6 @@ const Security = () => {
         fontSize={'lg'}>
             A finalidade da Ducktors é proporcionar um espaço que pessoas possam compartilhar sua arte. Violência, assédio e outros tipos de comportamentos semelhantes impedem que as pessoas se expressem e diminuem o valor da arte. Nossas regras foram criadas para garantir que todas as pessoas possam participar da cultura com liberdade e segurança.
         </Text>
-
       </Wrap>
     </Container>
   );
