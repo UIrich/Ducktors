@@ -4,9 +4,11 @@ import {
   Heading,
   Divider,
   Text,
+  Link,
   Wrap,
   Container,
 } from '@chakra-ui/react';
+import { Link as RouteLink } from "react-router-dom";
 
 const Privacy = () => {
   return (
@@ -22,12 +24,18 @@ const Privacy = () => {
       </Heading>
       <Divider marginTop="5" maxW="5xl"/>
       <Wrap spacing="30px" marginTop="5">
-        <Text 
-        fontWeight={400}
-        fontSize={'lg'}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec erat ut lectus pharetra semper. Duis quam leo, gravida a bibendum vitae, malesuada ac dui. Nam suscipit lectus nec facilisis varius. Etiam hendrerit lorem nulla, in venenatis metus ultrices a. Integer iaculis ligula a est scelerisque mattis. Aliquam turpis mi, tincidunt a sem ut, tincidunt volutpat mi. Nam nunc massa, molestie ut magna sit amet, laoreet egestas nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam vel volutpat urna, eu tincidunt mauris. Vivamus nec volutpat erat, vitae semper diam. Duis maximus condimentum molestie. Praesent quis lorem lorem. In hac habitasse platea dictumst. Duis sodales gravida massa vitae hendrerit.
+        <Text fontWeight={400} lineHeight={1.8} fontSize={'lg'}>
+            A Ducktors é pública e as postagens são imediatamente visíveis e pesquisáveis por qualquer pessoa em todo o mundo.
+        <Text fontWeight={400} lineHeight={1.8} fontSize={'lg'}>
+            Quando você usar a Ducktors, mesmo que esteja somente olhando postagens, recebemos algumas informações pessoais de você, como o tipo de dispositivo que você está usando e o seu endereço IP.
+        <Text fontWeight={400} lineHeight={1.8} fontSize={'lg'}>
+            Além das informações que você compartilha conosco, usamos suas postagens, o conteúdo que você leu e outras informações para determinar em quais tópicos você está interessado.
+        <Text fontWeight={400} fontSize={'lg'}>
+            Se você tiver dúvidas sobre esta política, sobre como coletamos ou processamos seus dados pessoais ou sobre qualquer outra coisa relacionada a nossas práticas de privacidade, gostaríamos de saber a sua opinião. Você pode <Link as={RouteLink} to='/contact' color='blue.400'>entrar em contato conosco</Link> a qualquer momento.
         </Text>
-
+        </Text>
+        </Text>
+        </Text>
       </Wrap>
     </Container>
   );

@@ -24,8 +24,9 @@ const Security = () => {
       <Wrap spacing="30px" marginTop="5">
         <Text 
         fontWeight={400}
+        lineHeight={1.8}
         fontSize={'lg'}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec erat ut lectus pharetra semper. Duis quam leo, gravida a bibendum vitae, malesuada ac dui. Nam suscipit lectus nec facilisis varius. Etiam hendrerit lorem nulla, in venenatis metus ultrices a. Integer iaculis ligula a est scelerisque mattis. Aliquam turpis mi, tincidunt a sem ut, tincidunt volutpat mi. Nam nunc massa, molestie ut magna sit amet, laoreet egestas nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam vel volutpat urna, eu tincidunt mauris. Vivamus nec volutpat erat, vitae semper diam. Duis maximus condimentum molestie. Praesent quis lorem lorem. In hac habitasse platea dictumst. Duis sodales gravida massa vitae hendrerit.
+            A finalidade da Ducktors é proporcionar um espaço que pessoas possam compartilhar sua arte. Violência, assédio e outros tipos de comportamentos semelhantes impedem que as pessoas se expressem e diminuem o valor da arte. Nossas regras foram criadas para garantir que todas as pessoas possam participar da cultura com liberdade e segurança.
         </Text>
 
       </Wrap>
