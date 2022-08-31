@@ -12,6 +12,7 @@ import WeakOrange from '../../assets/weakorange.svg';
 import StrongOrange from '../../assets/strongorange.svg';
 import Orange from '../../assets/orange.svg';
 
+
 // Settings for the slider
 const settings = {
   dots: true,
@@ -99,7 +100,7 @@ export default function CaptionCarousel() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'4xl'}
+            height={'lg'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"

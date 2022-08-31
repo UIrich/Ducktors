@@ -27,7 +27,8 @@ const Help = () => {
         fontWeight={400}
         lineHeight={1.8}
         fontSize={'lg'}>
-            Como podemos ajudar você?
+            Como podemos ajudar você? Na central de ajuda da Ducktors, pesquise informações sobre como solucionar problemas, e saiba o que fazer se estiver com problemas para entrar novamente.
+
         </Text>
         <Button as={'a'} bg='blue.400' _hover={{bg: 'blue.600'}} color='white' href='/contact'>Obter ajuda</Button>
       </Wrap>

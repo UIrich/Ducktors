@@ -38,7 +38,7 @@ const ArticleList = () => {
       </Heading>
       <Divider marginTop="5" maxW="5xl" />
       <Wrap spacing="30px" marginTop="5">
-        <SimpleGrid minChildWidth='310px' spacing="40px">
+        <SimpleGrid minChildWidth='250px' pl={5} spacing="60px">
                 <Article/>
                 <Article/>
                 <Article/>

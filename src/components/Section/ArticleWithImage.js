@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Image, Link, chakra } from "@chakra-ui/react";
-import PostImage from '../../assets/trigun.svg';
+import PostImage from '../../assets/image.svg';
 import AvatarImage from '../../assets/duck.svg';
 
 export default function ArticleWithImage(){
@@ -19,7 +19,7 @@ export default function ArticleWithImage(){
           transform="scale(1.0)"
           roundedTop="lg"
           w="5xl"
-          h={64}
+          h={400}
           fit="cover"
           src={PostImage}
           alt="Article"
@@ -37,7 +37,7 @@ export default function ArticleWithImage(){
               color="brand.600"
               _dark={{ color: "brand.400" }}
             >
-              Anime
+              Tag
             </chakra.span>
             <Link
               display="block"
@@ -48,7 +48,7 @@ export default function ArticleWithImage(){
               mt={2}
               _hover={{ color: "gray.600", textDecor: "underline" }}
             >
-              Um clássico dos animes
+              Lorem ipsum
             </Link>
           </Box>
 
@@ -68,7 +68,7 @@ export default function ArticleWithImage(){
                   color="gray.700"
                   _dark={{ color: "gray.200" }}
                 >
-                  Ulrich
+                  Nick
                 </Link>
               </Flex>
               <chakra.span
