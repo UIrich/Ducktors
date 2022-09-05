@@ -22,7 +22,7 @@ const Team = () => {
       <Heading as="h2" marginTop="5">
         Equipe
       </Heading>
-      <Divider marginTop="5" maxW="5xl"/>
+      <Divider marginTop="5" maxW="6xl"/>
       <Wrap spacing="30px" mt="60px">
         </Wrap>
           <Card/>

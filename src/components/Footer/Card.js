@@ -13,7 +13,6 @@ import {
     return (
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3}} maxChildWidth='6xl' spacing='3em'>
         <Box
-          mx="auto"
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'lg'}
@@ -38,7 +37,6 @@ import {
         </Box>
 
         <Box
-          mx="auto"
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'lg'}
@@ -63,7 +61,6 @@ import {
         </Box>
 
         <Box
-          mx="auto"
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'lg'}
@@ -88,7 +85,6 @@ import {
         </Box>
 
         <Box
-          mx="auto"
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'lg'}
@@ -113,7 +109,6 @@ import {
         </Box>
         
         <Box
-          mx="auto"
           bg={useColorModeValue('white', 'gray.900')}
           boxShadow={'2xl'}
           rounded={'lg'}
@@ -130,7 +125,7 @@ import {
             pos={'relative'}
           />
           <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Gabriel Bernardo
+            Gabriel Bernardo da Luz
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
             @_berrrrshit

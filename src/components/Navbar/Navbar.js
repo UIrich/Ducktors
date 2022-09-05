@@ -40,17 +40,7 @@ export default function Nav() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6    }>
-
-<Stack width='200px' spacing={4}>
-            <InputGroup>
-            <InputLeftElement
-                pointerEvents='none'
-                children={<SearchIcon color='gray.500' />}
-            />
-            <Input type='text' borderRadius='20' fontSize='md' placeholder='Buscar' width='sm' />
-          </InputGroup>
-        </Stack>
+          spacing={6}>
           <Button
             as={'a'}
             fontSize={'sm'}
@@ -85,7 +75,7 @@ export default function Nav() {
                 />
               </MenuButton>
               <MenuList>
-                <MenuItem>
+                <MenuItem as="a" href="/help">
                 <QuestionIcon mr='2'></QuestionIcon>Central de ajuda
                 </MenuItem>
                 <MenuDivider />
