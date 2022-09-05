@@ -8,9 +8,6 @@ import {
 } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
-import WeakOrange from '../../assets/weakorange.svg';
-import StrongOrange from '../../assets/strongorange.svg';
-import Orange from '../../assets/orange.svg';
 
 
 // Settings for the slider
@@ -41,15 +38,15 @@ export default function CaptionCarousel() {
   const cards = [
     {
       image:
-        WeakOrange,
+        "https://i.imgur.com/yvPbNmN.png",
     },
     {
       image:
-        Orange,
+        "https://i.imgur.com/ovJ5B13.png",
     },
     {
       image:
-        StrongOrange,
+      "https://i.imgur.com/ObCX14d.png"
     },
   ];
 
@@ -100,16 +97,16 @@ export default function CaptionCarousel() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'lg'}
+            height={'3xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}>
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
+            <Container size="container.lg" height="350px" position="relative">
               <Stack
-                spacing={6}
+                spacing={5}
                 w={'full'}
                 maxW={'lg'}
                 position="absolute"
