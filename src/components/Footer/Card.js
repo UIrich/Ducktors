@@ -30,7 +30,7 @@ import {
             pos={'relative'}
           />
           <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Ana Clara Moraes G.
+            Ana Clara de Moraes
           </Heading>
           <Text fontWeight={600} color={'gray.500'}>
             @pacxmg
@@ -55,7 +55,7 @@ import {
             pos={'relative'}
           />
           <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Eduardo M. Panzeri
+            Eduardo Panzeri
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
             @eduisthename
@@ -130,7 +130,7 @@ import {
             pos={'relative'}
           />
           <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Gabriel Bernardo L.
+            Gabriel Bernardo
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
             @_berrrrshit
