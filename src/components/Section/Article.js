@@ -6,7 +6,6 @@ import AvatarImage from '../../assets/duck.svg';
 export default function Article(){
     return (
         <Box
-        mx="auto"
         borderRadius="lg" 
         overflow="hidden"
         rounded="lg"
