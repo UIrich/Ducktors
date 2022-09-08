@@ -1,20 +1,68 @@
 import React from "react";
-import { Box, Flex, Image, Link, chakra } from "@chakra-ui/react";
+import { 
+  Box, 
+  Flex, 
+  Image, 
+  Link, 
+  chakra,
+  Modal, 
+  ModalOverlay, 
+  ModalContent, 
+  ModalHeader,  
+  ModalCloseButton,
+  ModalBody, 
+  ModalFooter, 
+  Button,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { LoremIpsum as Lorem } from 'react-lorem-ipsum';
+
 import PostImage from '../../assets/image.svg';
 import AvatarImage from '../../assets/duck.svg';
 
 export default function ArticleWithImage(){
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
       <Box
         mx="auto"
         rounded="lg"
         borderRadius="lg" 
         overflow="hidden"
-        shadow="md"
-        bg="white"
-        _dark={{ bg: "gray.800" }}
+        boxShadow={'xl'}
+        bg={useColorModeValue('white', 'gray.900')}
         maxW="7xl"
       >
+        <Modal size="xl" isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Lorem ipsum</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image
+            mb={5}
+            width="100%"
+            rounded="lg"
+            src={PostImage}
+            alt="Avatar"
+            />
+          <Lorem count={2} />
+          </ModalBody>
+          <ModalFooter>
+            <Button 
+            color={'white'} 
+            bg='blue.400' 
+            mr={3} 
+            onClick={onClose}
+            _hover={{
+              bg: 'blue.600',
+            }}
+            >
+              Fechar
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
         <Image
           transform="scale(1.0)"
           roundedTop="lg"
@@ -22,6 +70,8 @@ export default function ArticleWithImage(){
           h={400}
           fit="cover"
           src={PostImage}
+          onClick={onOpen}
+          cursor={'pointer'}
           alt="Article"
           transition="0.3s ease-in-out"
             _hover={{
@@ -45,6 +95,7 @@ export default function ArticleWithImage(){
               _dark={{ color: "white" }}
               fontWeight="bold"
               fontSize="2xl"
+              onClick={onOpen}
               mt={2}
               _hover={{ color: "gray.600", textDecor: "underline" }}
             >

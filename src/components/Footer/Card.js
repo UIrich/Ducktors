@@ -3,9 +3,7 @@ import {
     Avatar,
     Box,
     Text,
-    Stack,
     SimpleGrid,
-    Badge,
     useColorModeValue,
   } from '@chakra-ui/react';
   
