@@ -28,7 +28,7 @@ export default function Article(){
         borderRadius="lg" 
         overflow="hidden"
         rounded="lg"
-        boxShadow={'xl'}
+        boxShadow={'md'}
         maxW="6xl"
       >
         <Modal size="xl" isOpen={isOpen} onClose={onClose}>

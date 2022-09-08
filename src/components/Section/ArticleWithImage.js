@@ -29,7 +29,7 @@ export default function ArticleWithImage(){
         rounded="lg"
         borderRadius="lg" 
         overflow="hidden"
-        boxShadow={'xl'}
+        boxShadow={'md'}
         bg={useColorModeValue('white', 'gray.900')}
         maxW="7xl"
       >
