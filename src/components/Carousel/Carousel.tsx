@@ -9,8 +9,6 @@ import {
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 
-
-// Settings for the slider
 const settings = {
   dots: true,
   arrows: false,
@@ -24,17 +22,11 @@ const settings = {
 };
 
 export default function CaptionCarousel() {
-  // As we have used custom buttons, we need a reference variable to
-  // change the state
   const [slider, setSlider] = React.useState<typeof Slider | null>(null);
 
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
 
-  // This list contains all the data for carousels
-  // This can be static or loaded from a server
   const cards = [
     {
       image:
@@ -56,7 +48,6 @@ export default function CaptionCarousel() {
       height={'350px'}
       width={'full'}
       overflow={'hidden'}>
-      {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
         type="text/css"
@@ -68,7 +59,6 @@ export default function CaptionCarousel() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
         variant="ghost"
@@ -80,7 +70,6 @@ export default function CaptionCarousel() {
         onClick={() => slider?.slickPrev()}>
         <BiLeftArrowAlt size="40px" />
       </IconButton>
-      {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
         variant="ghost"
@@ -92,7 +81,6 @@ export default function CaptionCarousel() {
         onClick={() => slider?.slickNext()}>
         <BiRightArrowAlt size="40px" />
       </IconButton>
-      {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
@@ -103,7 +91,6 @@ export default function CaptionCarousel() {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}>
-            {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="350px" position="relative">
               <Stack
                 spacing={5}

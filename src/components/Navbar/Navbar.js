@@ -12,14 +12,11 @@ import {
   MenuDivider,
   MenuList,
   Text,
-  Input,
   Link,
-  InputGroup,
-  InputLeftElement,
   useColorMode,
 } from '@chakra-ui/react';
 import { Link as RouteLink } from "react-router-dom";
-import { QuestionIcon, SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import UnknownAvatarImage from '../../assets/grayduck.svg';
 
 export default function Nav() {
