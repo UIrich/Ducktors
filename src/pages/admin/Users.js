@@ -7,7 +7,6 @@ function Users() {
     <div class="Users">
     <ChakraProvider>
         <Sidebar/>
-        <UserPanel/>
     </ChakraProvider>
     </div>
 

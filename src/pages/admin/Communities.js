@@ -7,7 +7,6 @@ function Dashboard() {
     <div class="Dashboard">
     <ChakraProvider>
         <Sidebar/>
-        <CommunityPanel/>
     </ChakraProvider>
     </div>
 

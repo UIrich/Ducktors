@@ -1,226 +1,195 @@
-import React, { ReactNode } from 'react';
 import {
-  IconButton,
   Avatar,
   Box,
-  CloseButton,
-  Flex,
-  HStack,
-  VStack,
-  Icon,
-  useColorMode,
-  useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
-  Text,
-  useDisclosure,
-  BoxProps,
-  FlexProps,
+  DrawerOverlay,
+  Flex,
+  Icon,
+  IconButton,
   Menu,
   MenuButton,
+  Button,
+  MenuList,
+  Link,
   MenuDivider,
   MenuItem,
-  MenuList,
-} from '@chakra-ui/react';
-import {
-  FiHome,
-  FiFileText,
-  FiMenu,
-  FiUserX,
-  FiMoon,
-  FiUsers,
-  FiSun,
-  FiBox,
-  FiChevronDown,
-} from 'react-icons/fi';
-import { IconType } from 'react-icons';
+  useColorMode,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Text,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { Link as RouteLink } from "react-router-dom";
+import { FaClipboardCheck, FaRss } from "react-icons/fa";
+import { FiUserX, FiMenu, FiSearch } from "react-icons/fi";
+import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { HiCollection } from "react-icons/hi";
+import { MdHome } from "react-icons/md";
+import React from "react";
 
-interface LinkItemProps {
-  name: string;
-  url: string;
-  icon: IconType;
-}
+export default function App(){
+  const sidebar = useDisclosure();
+  const integrations = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
+  const color = useColorModeValue("gray.600", "gray.300");
 
-const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', url: '/admin/dashboard', icon: FiHome },
-  { name: 'Users', url: '/admin/dashboard/users', icon: FiUsers },
-  { name: 'Communities', url: '/admin/dashboard/communities', icon: FiBox },
-  { name: 'Posts', url: '/admin/dashboard/posts', icon: FiFileText },
-];
-
-export default function SidebarWithHeader({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <Box>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
-      />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full">
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
-
-      <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
-      </Box>
-    </Box>
-  );
-}
-
-interface SidebarProps extends BoxProps {
-  onClose: () => void;
-}
-
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  return (
-    <Box
-      bg={useColorModeValue('white', 'gray.900')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}>
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Ducktors
-        </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} to={link.url} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
-    </Box>
-  );
-};
-
-interface NavItemProps extends FlexProps {
-  to: string;
-  icon: IconType;
-}
-const NavItem = ({ icon, children, to = '/', ...rest }: NavItemProps) => {
-  return (
-    <Link href={to} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+  const NavItem = (props) => {
+    const { icon, children, ...rest } = props;
+    return (
       <Flex
         align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
+        px="4"
+        pl="4"
+        py="3"
         cursor="pointer"
+        color="inherit"
+        _dark={{ color: "gray.400" }}
         _hover={{
-          bg: 'blue.400',
-          color: 'white',
+          bg: "gray.100",
+          _dark: { bg: "gray.900" },
+          color: "gray.900",
         }}
-        {...rest}>
+        role="group"
+        fontWeight="semibold"
+        transition=".15s ease"
+        {...rest}
+      >
         {icon && (
           <Icon
-            mr="4"
-            fontSize="16"
+            mx="2"
+            boxSize="4"
             _groupHover={{
-              color: 'white',
+              color: color,
             }}
             as={icon}
           />
         )}
         {children}
       </Flex>
-    </Link>
-  )
-};
+    );
+  };
 
-interface MobileProps extends FlexProps {
-  onOpen: () => void;
-}
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-    const { colorMode, toggleColorMode } = useColorMode();
+  const SidebarContent = (props) => (
+    <Box
+      as="nav"
+      pos="fixed"
+      top="0"
+      left="0"
+      zIndex="sticky"
+      h="full"
+      pb="10"
+      overflowX="hidden"
+      overflowY="auto"
+      bg="white"
+      _dark={{ bg: "gray.800" }}
+      color="inherit"
+      borderRightWidth="1px"
+      w="60"
+      {...props}
+    >
+      <Flex px="4" py="5" align="center">
+        <Text
+          fontSize="2xl"
+          ml="2"
+          color="brand.500"
+          _dark={{ color: "white" }}
+          fontWeight="semibold"
+        >
+          Ducktors
+        </Text>
+      </Flex>
+      <Flex
+        direction="column"
+        as="nav"
+        fontSize="sm"
+        color="gray.600"
+        aria-label="Main Navigation"
+      >
+        <Link as={RouteLink} to='/admin/dashboard'><NavItem icon={MdHome}>Dashboard</NavItem></Link>
+        <Link as={RouteLink} to='/admin/dashboard/users'><NavItem icon={FaRss}>Users</NavItem></Link>
+        <Link as={RouteLink} to='/admin/dashboard/communities'><NavItem icon={HiCollection}>Community</NavItem></Link>
+        <Link as={RouteLink} to='/admin/dashboard/posts'><NavItem icon={FaClipboardCheck}>Posts</NavItem></Link>
+      </Flex>
+    </Box>
+  );
   return (
-    <Flex
-      ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 4 }}
-      height="20"
-      alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-      justifyContent={{ base: 'space-between', md: 'flex-end' }}
-      {...rest}>
-      <IconButton
-        display={{ base: 'flex', md: 'none' }}
-        onClick={onOpen}
-        variant="outline"
-        aria-label="open menu"
-        icon={<FiMenu />}
-      />
+    <Box as="section">
+      <SidebarContent display={{ base: "none", md: "unset" }} />
+      <Drawer
+        isOpen={sidebar.isOpen}
+        onClose={sidebar.onClose}
+        placement="left"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <SidebarContent w="full" borderRight="none" />
+        </DrawerContent>
+      </Drawer>
+      <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
+        <Flex
+          as="header"
+          align="center"
+          justify="space-between"
+          w="full"
+          px="4"
+          bg="white"
+          _dark={{ bg: "gray.800" }}
+          borderBottomWidth="1px"
+          color="inherit"
+          h="14"
+        >
+          <IconButton
+            aria-label="Menu"
+            display={{ base: "inline-flex", md: "none" }}
+            onClick={sidebar.onOpen}
+            icon={<FiMenu />}
+            size="sm"
+          />
+          <InputGroup w="96" >
+            <InputLeftElement color="gray.500">
+              <FiSearch />
+            </InputLeftElement>
+            <Input placeholder="Pesquisar..." />
+          </InputGroup>
 
-      <Text
-        display={{ base: 'flex', md: 'none' }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold">
-        Ducktors
-      </Text>
-
-      <HStack spacing={{ base: '0', md: '6' }}>
-        <Flex alignItems={'center'}>
+          <Flex align="center">
           <Menu>
-            <MenuButton
-              py={2}
-              transition="all 0.3s"
-              _focus={{ boxShadow: 'none' }}>
-              <HStack>
-                <Avatar
-                  size={'sm'}
-                  src={
-                    'https://i.imgur.com/J6yUk36.png'
-                  }
-                />
-                <VStack
-                  display={{ base: 'none', md: 'flex' }}
-                  alignItems="flex-start"
-                  spacing="1px"
-                  ml="2">
-                  <Text fontSize="sm">Admin</Text>
-                  <Text fontSize="xs" color="gray.600">
-                    Admin
-                  </Text>
-                </VStack>
-                <Box display={{ base: 'none', md: 'flex' }}>
-                  <FiChevronDown />
-                </Box>
-              </HStack>
-            </MenuButton>
-            <MenuList
-              bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>
-              <FiUserX/><Text mr='2'/>Sair</MenuItem>
-              <MenuDivider />
-              <MenuItem onClick={toggleColorMode}>
-              {colorMode === 'light' ? <FiMoon /> : <FiSun />}
-              <Text mr='2'/>Modo escuro
-              </MenuItem>
-            </MenuList>
-          </Menu>
+              <MenuButton
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}>
+            <Avatar
+              size="sm"
+              name="Admin"
+              src="https://i.imgur.com/gcCkdGg.png"
+              cursor="pointer"
+            />
+              </MenuButton>
+              <MenuList>
+                <MenuItem color="gray.600" fontWeight="semibold" _dark={{ color: "gray.400" }} as="a" href="#">
+                <FiUserX/><Text mr='2'/>Sair
+                </MenuItem>
+                <MenuDivider />
+                <MenuItem color="gray.600" fontWeight="semibold" _dark={{ color: "gray.400" }} onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                  <Text mr='2'/>Modo escuro
+                </MenuItem>
+              </MenuList>
+            </Menu>
+
+          </Flex>
         </Flex>
-      </HStack>
-    </Flex>
+
+        <Box as="main" p="4">
+          {/* Content */}
+          <Box rounded="md" h="96" />
+        </Box>
+      </Box>
+    </Box>
   );
 };
