@@ -24,26 +24,29 @@ import {
   MenuList,
 } from '@chakra-ui/react';
 import {
-  FiGrid,
+  FiHome,
   FiFileText,
   FiMenu,
   FiUserX,
   FiMoon,
   FiUsers,
   FiSun,
+  FiBox,
   FiChevronDown,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 
 interface LinkItemProps {
   name: string;
+  url: string;
   icon: IconType;
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiGrid },
-  { name: 'Usuários', icon: FiUsers },
-  { name: 'Postagens', icon: FiFileText },
+  { name: 'Dashboard', url: '/admin/dashboard', icon: FiHome },
+  { name: 'Users', url: '/admin/dashboard/users', icon: FiUsers },
+  { name: 'Communities', url: '/admin/dashboard/communities', icon: FiBox },
+  { name: 'Posts', url: '/admin/dashboard/posts', icon: FiFileText },
 ];
 
 export default function SidebarWithHeader({
@@ -70,7 +73,7 @@ export default function SidebarWithHeader({
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
-      {/* mobilenav */}
+
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
@@ -100,7 +103,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} to={link.url} icon={link.icon}>
           {link.name}
         </NavItem>
       ))}
@@ -109,11 +112,12 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 };
 
 interface NavItemProps extends FlexProps {
+  to: string;
   icon: IconType;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, to = '/', ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link href={to} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
@@ -122,7 +126,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: 'cyan.400',
+          bg: 'blue.400',
           color: 'white',
         }}
         {...rest}>
@@ -139,7 +143,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         {children}
       </Flex>
     </Link>
-  );
+  )
 };
 
 interface MobileProps extends FlexProps {

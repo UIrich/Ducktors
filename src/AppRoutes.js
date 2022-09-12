@@ -24,6 +24,7 @@ import Community from './pages/Community';
 import Admin from './pages/admin/Admin';
 import Dashboard from './pages/admin/Dashboard';
 import Posts from './pages/admin/Posts';
+import Communities from './pages/admin/Communities';
 import Users from './pages/admin/Users';
 
 export function AppRoutes() {
@@ -45,6 +46,7 @@ export function AppRoutes() {
             <Route exact path='/admin' element={<Admin/>} />
             <Route element={<Auth />}><Route exact path='/admin/dashboard' element={<Dashboard/>} /></Route>
             <Route element={<Auth />}><Route exact path='/admin/dashboard/users' element={<Users/>} /></Route>
+            <Route element={<Auth />}><Route exact path='/admin/dashboard/communities' element={<Communities/>} /></Route>
             <Route element={<Auth />}><Route exact path='/admin/dashboard/posts' element={<Posts/>} /></Route>
             <Route exact path='/forgotpassword' element={<ForgotPass/>} />
             <Route exact path='/resetpassword' element={<ResetPass/>} />

@@ -58,7 +58,7 @@ export default function Home() {
           fontSize={'4xl'}
           py={10}
           fontWeight={'bold'}>
-          Users
+          Communities
     </chakra.h1>
 
       <Box
@@ -83,7 +83,7 @@ export default function Home() {
             <IconButton
               size="sm"
               borderRadius="0"
-              aria-label="pesquisar-usuario"
+              aria-label="pesquisar-comunidade"
               icon={<Icon as={FaSearch} fontSize="16" />}
             />
 
@@ -104,9 +104,9 @@ export default function Home() {
             colorScheme="blue"
             leftIcon={<Icon as={FaPlus} fontSize="16" />}
             icon={<Icon as={FaPlus} fontSize="16" />}
-            title="Cadastrar usuário"
+            title="Criar comunidade"
           >
-            {isMdVersion && <Text>Novo usuário</Text>}
+            {isMdVersion && <Text>Criar comunidade</Text>}
           </Button>
         </Flex>
 
@@ -118,9 +118,9 @@ export default function Home() {
           <Table size="sm">
             <Thead bg={tableHeadColor}>
               <Tr>
-                <Th>Nick</Th>
-                {isMdVersion && <Th>E-mail</Th>}
-                {isLgVersion && <Th>Senha</Th>}
+                <Th>Nome</Th>
+                {isMdVersion && <Th>Descrição</Th>}
+                {isLgVersion && <Th>Status</Th>}
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
@@ -138,7 +138,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaEdit} fontSize="16"/>}
                         icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar usuário"
+                        title="Editar postagem"
                       >
                         {isMdVersion && <Text>Editar</Text>}
                       </Button>
@@ -151,7 +151,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
-                        title="Apagar usuário"
+                        title="Apagar postagem"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>

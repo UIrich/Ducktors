@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {
   Flex,
   Box,
+  chakra,
   Table,
   Thead,
   Tbody,
@@ -42,18 +43,26 @@ export default function Home() {
   const asButton = useBreakpointValue({ base: IconButton, md: Button })
 
   return (
+    
     <Flex
       w="100%"
-      maxWidth={1220}
+      maxWidth='7xl'
       mx="auto"
-      px="6"
+      px={{ base: 2, sm: 12, md: 17 }}
       my="6"
       direction="column"
     >
 
+    <chakra.h1
+          textAlign={'left'}
+          fontSize={'4xl'}
+          py={10}
+          fontWeight={'bold'}>
+          Posts
+    </chakra.h1>
+
       <Box
         flex="1"
-        p="4"
         bg={boxColor}
         borderRadius="md"
       >
@@ -74,7 +83,7 @@ export default function Home() {
             <IconButton
               size="sm"
               borderRadius="0"
-              aria-label="pesquisar-postagem"
+              aria-label="pesquisar-usuario"
               icon={<Icon as={FaSearch} fontSize="16" />}
             />
 
@@ -97,7 +106,7 @@ export default function Home() {
             icon={<Icon as={FaPlus} fontSize="16" />}
             title="Criar postagem"
           >
-            {isMdVersion && <Text>Nova postagem</Text>}
+            {isMdVersion && <Text>Criar postagem</Text>}
           </Button>
         </Flex>
 
