@@ -73,12 +73,12 @@ export default function Nav() {
               </MenuButton>
               <MenuList>
                 <MenuItem as="a" href="/help">
-                <QuestionIcon mr='2'></QuestionIcon>Central de ajuda
+                <QuestionIcon/><Text mr='2'/>Central de ajuda
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                  <Box p='8px'>Modo escuro</Box>
+                  <Text mr='2'/>Modo escuro
                 </MenuItem>
               </MenuList>
             </Menu>

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Navigate, Outlet } from "react-router-dom";
 import { useState } from 'react';
 import {
   Flex,
   Box,
-  Heading,
   Table,
   Thead,
   Tbody,
@@ -17,17 +15,18 @@ import {
   Input,
   Button,
   IconButton,
-  useColorMode,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react';
 
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
 
 export default function Home() {
-  const { colorMode, toggleColorMode } = useColorMode();
   const borderColor = useColorModeValue("gray.200", "gray.600");
+  const boxColor = useColorModeValue("white", "gray.700");
+  const tableHeadColor = useColorModeValue("gray.200", "gray.600");
+  const headingColor = useColorModeValue("gray.600", "gray.200");
+
   const [valueSearch, setValueSearch] = useState('');
 
   const isLgVersion = useBreakpointValue({
@@ -51,30 +50,13 @@ export default function Home() {
       my="6"
       direction="column"
     >
-      <Button
-        maxWidth={120}
-        my="4"
-        ml="auto"
-        colorScheme="gray"
-        onClick={toggleColorMode}
-      >
-        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-      </Button>
 
       <Box
         flex="1"
         p="4"
-        bg={colorMode === "light" ? "white" : "gray.700"}
+        bg={boxColor}
         borderRadius="md"
       >
-        <Heading
-          py="2"
-          fontSize={["sm", "lg", "xl"]}
-          fontWeight="black"
-          color={colorMode === "light" ? "gray.600" : "gray.200"}
-        >
-          Gerenciador de usuários
-        </Heading>
 
         <Flex
           justify="space-between"
@@ -92,7 +74,7 @@ export default function Home() {
             <IconButton
               size="sm"
               borderRadius="0"
-              aria-label="pesquisar-usuario"
+              aria-label="pesquisar-postagem"
               icon={<Icon as={FaSearch} fontSize="16" />}
             />
 
@@ -113,9 +95,9 @@ export default function Home() {
             colorScheme="blue"
             leftIcon={<Icon as={FaPlus} fontSize="16" />}
             icon={<Icon as={FaPlus} fontSize="16" />}
-            title="Cadastrar usuário"
+            title="Criar postagem"
           >
-            {isMdVersion && <Text>Novo usuário</Text>}
+            {isMdVersion && <Text>Nova postagem</Text>}
           </Button>
         </Flex>
 
@@ -125,11 +107,11 @@ export default function Home() {
           borderColor={borderColor}
         >
           <Table size="sm">
-            <Thead bg={colorMode === "light" ? "gray.200" : "gray.600"}>
+            <Thead bg={tableHeadColor}>
               <Tr>
-                <Th>Nick</Th>
-                {isMdVersion && <Th>E-mail</Th>}
-                {isLgVersion && <Th>Senha</Th>}
+                <Th>Título</Th>
+                {isMdVersion && <Th>Texto</Th>}
+                {isLgVersion && <Th>Data</Th>}
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
@@ -147,7 +129,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaEdit} fontSize="16"/>}
                         icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar usuário"
+                        title="Editar postagem"
                       >
                         {isMdVersion && <Text>Editar</Text>}
                       </Button>
@@ -160,7 +142,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
-                        title="Apagar usuário"
+                        title="Apagar postagem"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>

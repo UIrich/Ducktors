@@ -22,7 +22,9 @@ import Privacy from './pages/Privacy';
 import Cookies from './pages/Cookies';
 import Community from './pages/Community';
 import Admin from './pages/admin/Admin';
-import Dashboard from './pages/admin/Dashboard'
+import Dashboard from './pages/admin/Dashboard';
+import Posts from './pages/admin/Posts';
+import Users from './pages/admin/Users';
 
 export function AppRoutes() {
     return(
@@ -42,6 +44,8 @@ export function AppRoutes() {
             <Route exact path='/team' element={<Team/>} />
             <Route exact path='/admin' element={<Admin/>} />
             <Route element={<Auth />}><Route exact path='/admin/dashboard' element={<Dashboard/>} /></Route>
+            <Route element={<Auth />}><Route exact path='/admin/dashboard/users' element={<Users/>} /></Route>
+            <Route element={<Auth />}><Route exact path='/admin/dashboard/posts' element={<Posts/>} /></Route>
             <Route exact path='/forgotpassword' element={<ForgotPass/>} />
             <Route exact path='/resetpassword' element={<ResetPass/>} />
             <Route exact path='/success' element={<SuccessResult/>} />

@@ -1,15 +1,17 @@
 import Sidebar from '../../components/Navbar/Sidebar.tsx'
+import UserPanel from '../../components/Dashboard/UserPanel.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
-function Dashboard() {
+function Users() {
     return (
-    <div class="Dashboard">
+    <div class="Users">
     <ChakraProvider>
         <Sidebar/>
+        <UserPanel/>
     </ChakraProvider>
     </div>
 
     );
 }
 
-export default Dashboard;
+export default Users;
