@@ -25,14 +25,13 @@ import {
 import { Link as RouteLink } from "react-router-dom";
 import { FaClipboardCheck, FaRss } from "react-icons/fa";
 import { FiUserX, FiMenu, FiSearch } from "react-icons/fi";
-import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { HiCollection } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
 import React from "react";
 
 export default function App(){
   const sidebar = useDisclosure();
-  const integrations = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const color = useColorModeValue("gray.600", "gray.300");
 
