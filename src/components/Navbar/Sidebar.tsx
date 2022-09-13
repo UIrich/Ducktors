@@ -7,13 +7,9 @@ import {
   Flex,
   Icon,
   IconButton,
-  Menu,
-  MenuButton,
+  Divider,
   Button,
-  MenuList,
   Link,
-  MenuDivider,
-  MenuItem,
   useColorMode,
   Input,
   InputGroup,
@@ -23,8 +19,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom";
-import { FaClipboardCheck, FaRss } from "react-icons/fa";
-import { FiUserX, FiMenu, FiSearch } from "react-icons/fi";
+import { FaUserTimes, FaClipboardCheck, FaRss } from "react-icons/fa";
+import { FiMenu, FiSearch } from "react-icons/fi";
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { HiCollection } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
@@ -111,6 +107,8 @@ export default function App(){
         <Link as={RouteLink} to='/admin/dashboard/users'><NavItem icon={FaRss}>Users</NavItem></Link>
         <Link as={RouteLink} to='/admin/dashboard/communities'><NavItem icon={HiCollection}>Community</NavItem></Link>
         <Link as={RouteLink} to='/admin/dashboard/posts'><NavItem icon={FaClipboardCheck}>Posts</NavItem></Link>
+        <Divider mt={2}/>
+        <NavItem icon={FaUserTimes}>Sair</NavItem>
       </Flex>
     </Box>
   );
@@ -141,11 +139,13 @@ export default function App(){
           h="14"
         >
           <IconButton
+            mr='3'
             aria-label="Menu"
             display={{ base: "inline-flex", md: "none" }}
             onClick={sidebar.onOpen}
+            variant="ghost"
             icon={<FiMenu />}
-            size="sm"
+            size="md"
           />
           <InputGroup w="96" >
             <InputLeftElement color="gray.500">
@@ -155,32 +155,16 @@ export default function App(){
           </InputGroup>
 
           <Flex align="center">
-          <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}>
+          <Button variant='ghost' mr="3" ml="2" onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              </Button>
             <Avatar
               size="sm"
               name="Admin"
+              rounded={'full'}
               src="https://i.imgur.com/gcCkdGg.png"
               cursor="pointer"
             />
-              </MenuButton>
-              <MenuList>
-                <MenuItem color="gray.600" fontWeight="semibold" _dark={{ color: "gray.400" }} as="a" href="#">
-                <FiUserX/><Text mr='2'/>Sair
-                </MenuItem>
-                <MenuDivider />
-                <MenuItem color="gray.600" fontWeight="semibold" _dark={{ color: "gray.400" }} onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                  <Text mr='2'/>Modo escuro
-                </MenuItem>
-              </MenuList>
-            </Menu>
-
           </Flex>
         </Flex>
 
