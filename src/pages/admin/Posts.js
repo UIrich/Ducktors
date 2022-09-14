@@ -7,6 +7,7 @@ function Posts() {
     <div class="Posts">
     <ChakraProvider>
         <Sidebar/>
+        <PostPanel/>
     </ChakraProvider>
     </div>
 

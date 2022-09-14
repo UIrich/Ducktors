@@ -43,7 +43,7 @@ export default function Home() {
   const asButton = useBreakpointValue({ base: IconButton, md: Button })
 
   return (
-    
+    <Box maxW="9xl" mx={'auto'} pt={5} ml={{ base: 0, md: 60 }} px={{ base: 2, sm: 12, md: 17 }}>
     <Flex
       w="100%"
       maxWidth='7xl'
@@ -76,29 +76,11 @@ export default function Home() {
             flex="1"
             direction="row"
             align="center"
-            border="1px"
-            borderRadius="md"
-            borderColor={borderColor}
            >
-            <IconButton
-              size="sm"
-              borderRadius="0"
-              aria-label="pesquisar-comunidade"
-              icon={<Icon as={FaSearch} fontSize="16" />}
-            />
-
-            <Input
-              size="sm"
-              border="0"
-              focusBorderColor="blue.500"
-              placeholder="Pesquisar..."
-              value={valueSearch}
-            />
           </Flex>
 
           <Button
             as={asButton}
-            ml="4"
             size="sm"
             fontSize="sm"
             colorScheme="blue"
@@ -119,8 +101,7 @@ export default function Home() {
             <Thead bg={tableHeadColor}>
               <Tr>
                 <Th>Nome</Th>
-                {isMdVersion && <Th>Descrição</Th>}
-                {isLgVersion && <Th>Status</Th>}
+                {isMdVersion && <Th>Status</Th>}
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
@@ -129,7 +110,6 @@ export default function Home() {
                   <Tr>
                     <Td borderColor={borderColor}></Td>
                     {isMdVersion && <Td borderColor={borderColor}></Td>}
-                    {isLgVersion && <Td borderColor={borderColor}></Td>}
                     <Td borderColor={borderColor}>
                       <Button
                         as={asButton}
@@ -166,5 +146,6 @@ export default function Home() {
         </Box>
       </Box>
     </Flex>
+    </Box>
   )
 }

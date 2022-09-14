@@ -14,7 +14,7 @@ import { con } from './utils.js';
 
             if(JSON.stringify(pool._connected) == 'true')
             {
-                console.log('Database function test connected.');
+                console.log('\x1b[36m[connection] database function test connected');
                 await pool.close();
                 return true
             }

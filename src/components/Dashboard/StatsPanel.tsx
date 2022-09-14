@@ -49,7 +49,15 @@ import {
   
   export default function BasicStatistics() {
     return (
-      <Box maxW="7xl" mx={'auto'} pt={5} px={{ base: 2, sm: 12, md: 17 }}>
+      <Box maxW="9xl" mx={'auto'} pt={5} ml={{ base: 0, md: 60 }} px={{ base: 2, sm: 12, md: 17 }}>
+      <Flex
+      w="100%"
+      maxWidth='7xl'
+      mx="auto"
+      px={{ base: 2, sm: 12, md: 17 }}
+      my="6"
+      direction="column"
+    >
         <chakra.h1
           textAlign={'left'}
           fontSize={'4xl'}
@@ -74,6 +82,7 @@ import {
             icon={<FiFileText size={'3em'} />}
           />
         </SimpleGrid>
+        </Flex>
       </Box>
     );
   }

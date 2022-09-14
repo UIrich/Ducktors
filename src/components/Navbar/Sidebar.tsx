@@ -108,7 +108,7 @@ export default function App(){
         <Link as={RouteLink} to='/admin/dashboard/communities'><NavItem icon={HiCollection}>Community</NavItem></Link>
         <Link as={RouteLink} to='/admin/dashboard/posts'><NavItem icon={FaClipboardCheck}>Posts</NavItem></Link>
         <Divider mt={2}/>
-        <NavItem icon={FaUserTimes}>Sair</NavItem>
+        <NavItem icon={FaUserTimes}>Log out</NavItem>
       </Flex>
     </Box>
   );
@@ -168,11 +168,7 @@ export default function App(){
           </Flex>
         </Flex>
 
-        <Box as="main" p="4">
-          {/* Content */}
-          <Box rounded="md" h="96" />
         </Box>
       </Box>
-    </Box>
   );
 };
