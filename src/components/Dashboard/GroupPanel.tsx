@@ -24,9 +24,7 @@ import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
 
 export default function Home() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
-  const boxColor = useColorModeValue("white", "gray.700");
   const tableHeadColor = useColorModeValue("gray.200", "gray.600");
-  const headingColor = useColorModeValue("gray.600", "gray.200");
 
   const [valueSearch, setValueSearch] = useState('');
 
@@ -58,12 +56,11 @@ export default function Home() {
           fontSize={'4xl'}
           py={10}
           fontWeight={'bold'}>
-          Communities
+          Groups
     </chakra.h1>
 
       <Box
         flex="1"
-        bg={boxColor}
         borderRadius="md"
       >
 
@@ -86,9 +83,9 @@ export default function Home() {
             colorScheme="blue"
             leftIcon={<Icon as={FaPlus} fontSize="16" />}
             icon={<Icon as={FaPlus} fontSize="16" />}
-            title="Criar comunidade"
+            title="Criar grupo"
           >
-            {isMdVersion && <Text>Criar comunidade</Text>}
+            {isMdVersion && <Text>Criar grupo</Text>}
           </Button>
         </Flex>
 
@@ -118,7 +115,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaEdit} fontSize="16"/>}
                         icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar postagem"
+                        title="Editar grupo"
                       >
                         {isMdVersion && <Text>Editar</Text>}
                       </Button>
@@ -131,7 +128,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
-                        title="Apagar postagem"
+                        title="Apagar grupo"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>

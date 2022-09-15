@@ -11,13 +11,14 @@ import {
   } from '@chakra-ui/react';
   import { ReactNode } from 'react';
   import { BsPerson } from 'react-icons/bs';
-  import { FiFolder, FiFileText } from 'react-icons/fi';
+  import { FiFilm, FiFileText } from 'react-icons/fi';
   
   interface StatsCardProps {
     title: string;
     stat: string;
     icon: ReactNode;
   }
+
   function StatsCard(props: StatsCardProps) {
     const { title, stat, icon } = props;
     return (
@@ -72,9 +73,9 @@ import {
             icon={<BsPerson size={'3em'} />}
           />
           <StatsCard
-            title={'Communities'}
+            title={'Groups'}
             stat={'-'}
-            icon={<FiFolder size={'3em'} />}
+            icon={<FiFilm size={'3em'} />}
           />
           <StatsCard
             title={'Posts'}

@@ -19,10 +19,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom";
-import { FaUserTimes, FaClipboardCheck, FaRss } from "react-icons/fa";
+import { FaUserTimes, FaClipboardCheck, FaUserAlt } from "react-icons/fa";
 import { FiMenu, FiSearch } from "react-icons/fi";
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { HiCollection } from "react-icons/hi";
+import { HiUserGroup } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
 import React from "react";
 
@@ -104,8 +104,8 @@ export default function App(){
         aria-label="Main Navigation"
       >
         <Link as={RouteLink} to='/admin/dashboard'><NavItem icon={MdHome}>Dashboard</NavItem></Link>
-        <Link as={RouteLink} to='/admin/dashboard/users'><NavItem icon={FaRss}>Users</NavItem></Link>
-        <Link as={RouteLink} to='/admin/dashboard/communities'><NavItem icon={HiCollection}>Community</NavItem></Link>
+        <Link as={RouteLink} to='/admin/dashboard/users'><NavItem icon={FaUserAlt}>Users</NavItem></Link>
+        <Link as={RouteLink} to='/admin/dashboard/groups'><NavItem icon={HiUserGroup}>Groups</NavItem></Link>
         <Link as={RouteLink} to='/admin/dashboard/posts'><NavItem icon={FaClipboardCheck}>Posts</NavItem></Link>
         <Divider mt={2}/>
         <NavItem icon={FaUserTimes}>Log out</NavItem>

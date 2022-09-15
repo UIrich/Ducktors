@@ -4,7 +4,7 @@ import { con } from './utils.js';
     export async function ConnectSqlServerTest(){
         try{
             sql.on('error', err => {
-                console.log(`${err}`);
+                console.log(`\x1b[31m[error] ${err}`);
                 return false;
             });
 
@@ -26,7 +26,7 @@ import { con } from './utils.js';
             }
         }   
         catch(err){
-            console.log(`${err}`);
+            console.log(`\x1b[31m[error] ${err}`);
             return false;
         }
 
@@ -42,7 +42,7 @@ import { con } from './utils.js';
             
         }
         catch(err){
-            console.log(`${err}`)
+            console.log(`\x1b[31m[error] ${err}`)
             return false
         }
     };

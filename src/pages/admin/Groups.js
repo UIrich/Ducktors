@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Navbar/Sidebar.tsx';
-import CommunityPanel from '../../components/Dashboard/CommunityPanel.tsx';
+import GroupPanel from '../../components/Dashboard/GroupPanel.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function Dashboard() {
@@ -7,7 +7,7 @@ function Dashboard() {
     <div class="Dashboard">
     <ChakraProvider>
         <Sidebar/>
-        <CommunityPanel/>
+        <GroupPanel/>
     </ChakraProvider>
     </div>
 

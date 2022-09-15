@@ -24,9 +24,7 @@ import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
 
 export default function Home() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
-  const boxColor = useColorModeValue("white", "gray.700");
   const tableHeadColor = useColorModeValue("gray.200", "gray.600");
-  const headingColor = useColorModeValue("gray.600", "gray.200");
 
   const [valueSearch, setValueSearch] = useState('');
 
@@ -63,7 +61,6 @@ export default function Home() {
 
       <Box
         flex="1"
-        bg={boxColor}
         borderRadius="md"
       >
 
