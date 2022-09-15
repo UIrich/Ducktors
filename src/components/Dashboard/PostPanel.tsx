@@ -13,14 +13,13 @@ import {
   Td,
   Icon,
   Text,
-  Input,
   Button,
   IconButton,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react';
 
-import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
 export default function Home() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
@@ -73,7 +72,6 @@ export default function Home() {
             flex="1"
             direction="row"
             align="center"
-            borderColor={borderColor}
            >
           </Flex>
 

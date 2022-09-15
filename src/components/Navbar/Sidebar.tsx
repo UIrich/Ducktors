@@ -147,12 +147,9 @@ export default function App(){
             icon={<FiMenu />}
             size="md"
           />
-          <InputGroup w="96" >
-            <InputLeftElement color="gray.500">
-              <FiSearch />
-            </InputLeftElement>
-            <Input placeholder="Pesquisar..." />
-          </InputGroup>
+
+          <Box w="96" >
+          </Box>
 
           <Flex align="center">
           <Button variant='ghost' mr="3" ml="2" onClick={toggleColorMode}>
@@ -167,7 +164,6 @@ export default function App(){
             />
           </Flex>
         </Flex>
-
         </Box>
       </Box>
   );
