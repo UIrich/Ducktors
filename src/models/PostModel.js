@@ -1,7 +1,7 @@
 import { CreatePool } from "../../server/database.js";
 const connection = await CreatePool();
 
-export class Post{
+export class PostModel{
     constructor(id_postagem, titulo, texto, tipo, criado, img, stat){
         this.post = id_postagem,
         this.titulo = titulo,

@@ -1,7 +1,7 @@
 import { Post } from "../models/PostModel.js";
 
 export class PostController{
-    static async store(req, res){
+    static async Store(req, res){
         try {
             const {id_postagem, titulo, texto, tipo} = req.body;
 

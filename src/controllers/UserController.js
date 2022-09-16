@@ -1,7 +1,7 @@
 import { User } from "../models/UserModel.js";
 
 export class UserController{
-    static async store(req, res){
+    static async Store(req, res){
         try {
            const { id_user } = req.body;
            if( id_user == '' || id_user == null){
@@ -25,6 +25,23 @@ export class UserController{
         } 
         catch (error) {
             return res.status(500).send('Error to store user: ' + error);
+        }
+    }
+
+    static async Select(req ,res){
+        try {
+            const data = await User.Select();
+
+            if(!data){
+                 return res.status(203).json({
+                     msg : 'No user found.'
+                 })
+             }
+         
+             return res.status(200).json(data);
+        } 
+        catch (error) {
+            return res.status(500).send('Error to select user: ' + error);
         }
     }
 };
