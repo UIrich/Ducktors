@@ -1,11 +1,12 @@
 import { Post } from "../models/PostModel.js";
 
 export class PostController{
-    static async Store(req, res){
+    static async Insert(req, res){
         try {
             const {id_postagem, titulo, texto, tipo} = req.body;
 
-            if(texto == '' || texto == null || titulo == '' || titulo == null || tipo == '' || tipo == null || id_postagem == '' || id_postagem == null){
+            if(texto == '' || texto == null || titulo == '' || titulo == null || 
+            tipo == '' || tipo == null || id_postagem == '' || id_postagem == null){
                 return res.status(206).json({
                     msg : 'Some information was not sent.'
                 })
@@ -95,7 +96,7 @@ export class PostController{
             if(!data)
             {
                 return res.status(203).json({
-                    msg : "No post found to delete!"
+                    msg : 'No post found to delete!'
                 })
             }
             else

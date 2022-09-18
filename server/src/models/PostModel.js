@@ -1,7 +1,7 @@
-import { CreatePool } from "../../server/database.js";
+import { CreatePool } from "../../database.js";
 const connection = await CreatePool();
 
-export class PostModel{
+export class Post{
     constructor(id_postagem, titulo, texto, tipo, criado, img, stat){
         this.post = id_postagem,
         this.titulo = titulo,
@@ -14,7 +14,9 @@ export class PostModel{
 
     static async Insert(id_postagem, titulo, texto, tipo, criado, img, stat){
         try{
-            const { rowsAffected } = await connection.query(`INSERT INTO postagem VALUES('${id_postagem}', ${titulo}, '${texto}', '${tipo}', ${criado}, ${img}, '${stat}'')`)
+            const { rowsAffected } = await connection.query(`INSERT INTO 
+            postagem VALUES('${id_postagem}', ${titulo}, '${texto}', 
+            '${tipo}', ${criado}, ${img}, '${stat}'')`)
             if(rowsAffected[0] == 1){
                 return new Post(id_postagem, titulo, texto, tipo, criado, img, stat);
             }
@@ -52,7 +54,8 @@ export class PostModel{
                 return false;
             }
 
-            const { rowsAffected } = await connection.query(`UPDATE postagem SET texto = '${texto}', tipo = '${tipo}' where postagem_id = ${id_postagem}`);
+            const { rowsAffected } = await connection.query(`UPDATE postagem 
+            SET texto = '${texto}', tipo = '${tipo}' where postagem_id = ${id_postagem}`);
             
             if(rowsAffected[0] == 1){
                 return new Post(id_postagem, texto, tipo);
