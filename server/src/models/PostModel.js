@@ -1,4 +1,4 @@
-import { CreatePool } from "../../database.js";
+import { CreatePool } from "../utils/server.js";
 const connection = await CreatePool();
 
 export class Post{
@@ -15,8 +15,8 @@ export class Post{
     static async Insert(id_postagem, titulo, texto, tipo, criado, img, stat){
         try{
             const { rowsAffected } = await connection.query(`INSERT INTO 
-            postagem VALUES('${id_postagem}', ${titulo}, '${texto}', 
-            '${tipo}', ${criado}, ${img}, '${stat}'')`)
+            postagem VALUES(${id_postagem}, '${titulo}', '${texto}', 
+            '${tipo}', ${criado}, ${img}, ${stat}')`)
             if(rowsAffected[0] == 1){
                 return new Post(id_postagem, titulo, texto, tipo, criado, img, stat);
             }
@@ -25,7 +25,7 @@ export class Post{
             }
         }
         catch(err){
-            console.log(`Error on insert 'post': ${err}`)
+            console.log(`Error to insert 'post' located on model: ${err}`)
             await connection.close();
             return false;
         }
@@ -40,7 +40,7 @@ export class Post{
             }
         }
         catch(err){
-            console.log(`Error on select 'post': ${err}`)
+            console.log(`Error to select 'post' located on model: ${err}`)
             await connection.close();
             return false;
         }
@@ -65,7 +65,7 @@ export class Post{
             }        
         }
         catch(err){
-            console.log(`Error to update 'post': ${err}`);
+            console.log(`Error to update 'post' located on model: ${err}`);
             await connection.close();
             return false;
         }
@@ -88,7 +88,7 @@ export class Post{
             }
         }
         catch(err){
-            console.log(`Error on delete 'post': ${err}`);
+            console.log(`Error to delete 'post' located on model: ${err}`);
             await connection.close();
             return false;
         }

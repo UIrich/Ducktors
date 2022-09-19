@@ -1,5 +1,5 @@
 import sql from 'mssql';
-import { con } from './utils.js';
+import { con } from './database.js';
 
     export async function ConnectSqlServerTest(){
         try{

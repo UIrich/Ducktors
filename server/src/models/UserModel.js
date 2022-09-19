@@ -1,14 +1,13 @@
-import { CreatePool } from "../../database.js";
+import { CreatePool } from "../utils/server.js";
 const connection = await CreatePool();
 
 export class User{
-    constructor(id_user, nick, email, senha, nivel, avatar, stat){
+    constructor(id_user, nick, email, senha, nivel, stat){
         this.id_user = id_user,
         this.nick = nick,
         this.email = email,
         this.senha = senha,
         this.nivel = nivel,
-        this.avatar = avatar,
         this.stat = stat
     };
 
@@ -21,38 +20,38 @@ export class User{
             }
         }
         catch(err){
-            console.log(`Error on select 'user': ${err}`)
+            console.log(`Error to select 'user' located on model: ${err}`)
             await connection.close();
             return false;
         }
     }
 
-    static async Insert(nick, email, senha, nivel, stat, avatar){
+    static async Insert(nick, email, senha, nivel, stat){
         try{
             const { rowsAffected } = await connection.query(`INSERT INTO USER VALUES('${nick}', ${email}, 
-            '${senha}', ${nivel}, ${stat}, '${avatar}'')`)
+            '${senha}', ${nivel}, ${stat})`)
             if(rowsAffected[0] == 1){
-                return new User(nick, email, senha, nivel, stat, avatar);
+                return new User(nick, email, senha, nivel, stat);
             }
             else{
                 return false;
             }
         }
         catch(err){
-            console.log(`Error on insert 'user': ${err}`)
+            console.log(`Error to insert 'user' located on model: ${err}`)
             await connection.close();
             return false;
         }
     }
 
-    static async Update(id_user, nick, email, senha, nivel, stat, avatar){
+    static async Update(id_user, nick, email, senha, nivel, stat){
         try{
             const { rowsAffected } = await connection.query(`UPDATE USER SET NICK = '${nick}', EMAIL = '${email}', 
-            SENHA = '${senha}', NIVEL = '${nivel}', STAT = '${stat}', AVATAR = ${avatar} WHERE id_user = '${id_user}`)
+            SENHA = '${senha}', NIVEL = ${nivel}, STAT = ${stat} WHERE id_user = ${id_user}`)
             return rowsAffected;
         }
         catch(err){
-            console.log(`Error on update 'user': ${err}`)
+            console.log(`Error on update 'user' located on model: ${err}`)
             await connection.close();
             return false;
         }
@@ -64,7 +63,7 @@ export class User{
             return rowsAffected;
         }
         catch(err){
-            console.log(`Error on delete 'user': ${err}`)
+            console.log(`Error to delete 'user' located on model: ${err}`)
             await connection.close();
             return false;
         }

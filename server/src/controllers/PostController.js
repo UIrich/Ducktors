@@ -38,7 +38,7 @@ export class PostController{
     static async Select(req, res){
         try{
 
-            const data = await Post.listarTodos();
+            const data = await Post.Select();
             
             if(!data)
             {

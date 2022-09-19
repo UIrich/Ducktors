@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { ConnectSqlServerTest } from './database.js';
+import { ConnectSqlServerTest } from './src/utils/server.js';
 import { routes } from "./routes.js";
 
 const app = express();

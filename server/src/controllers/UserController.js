@@ -48,18 +48,17 @@ export class UserController{
     static async Update(req, res){
         try{
             const { id_user } = req.params;
-            const { nick, email, senha, nivel, stat, avatar } = req.body;
+            const { nick, email, senha, nivel, stat } = req.body;
 
             if( id_user == '' || id_user == null || nick == '' || nick == null || 
             email == '' || email == null || senha == '' || senha == null || 
-            nivel == '' || nivel == null || stat == '' || stat == null || 
-            avatar == '' || avatar == null){
+            nivel == '' || nivel == null || stat == '' || stat == null ){
                 return res.status(206).json({
                     msg : 'Some information was not sent.'
                 })
             } 
 
-            const data = await User.Update(id_user, email, senha, nivel, stat, avatar);
+            const data = await User.Update(id_user, email, senha, nivel, stat);
 
             if(!data)
             {
