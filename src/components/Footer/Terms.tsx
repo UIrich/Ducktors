@@ -5,12 +5,14 @@ import {
   Divider,
   Text,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const Terms = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -29,6 +31,7 @@ const Terms = () => {
             Estes termos de serviço refletem a maneira como a Ducktors funciona, as leis que se aplicam à nossa empresa e determinados pontos em que sempre acreditamos. Como resultado, estes termos ajudam a definir a relação da Ducktors com você na medida da sua interação com os nossos serviços.
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

@@ -3,8 +3,6 @@ import {
   Box,
   Heading,
   Divider,
-  SimpleGrid,
-  Text,
   Wrap,
   Container,
 } from '@chakra-ui/react';
@@ -23,11 +21,9 @@ const Team = () => {
         Equipe
       </Heading>
       <Divider marginTop="5" maxW="6xl"/>
-      <Wrap spacing="30px" mt="60px">
-        </Wrap>
-          <Card/>
+      <Wrap spacing="30px" mt="60px"/>
+        <Card/>
     </Container>
-
   );
 };
 

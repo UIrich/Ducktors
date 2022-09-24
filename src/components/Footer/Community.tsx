@@ -5,12 +5,14 @@ import {
   Divider,
   Text,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const Community = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -32,6 +34,7 @@ const Community = () => {
         </Text>
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

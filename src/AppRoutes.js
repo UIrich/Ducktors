@@ -3,6 +3,7 @@ import {
     Route,
     Routes,
 } from 'react-router-dom';
+import ScrollToTop from './components/Footer/ScrollToTop';
 import Auth from './contexts/Auth'
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -27,9 +28,11 @@ import Posts from './pages/admin/Posts';
 import Groups from './pages/admin/Groups';
 import Users from './pages/admin/Users';
 
+
 export function AppRoutes() {
     return(
         <BrowserRouter>
+        <ScrollToTop>
             <Routes>
             <Route exact path='/' element={<Home/>} />
             <Route exact path='/login' element={<Login/>} />
@@ -54,6 +57,7 @@ export function AppRoutes() {
             <Route exact path='/error' element={<ErrorResult/>} />
             <Route exact path='/404' element={<NotFoundResult/>} />
             </Routes>
+        </ScrollToTop>
         </BrowserRouter>
     )
 }

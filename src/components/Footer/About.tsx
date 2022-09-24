@@ -5,12 +5,14 @@ import {
   Divider,
   Text,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const About = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -29,6 +31,7 @@ const About = () => {
             A Ducktors é uma rede social voltada ao mundo geek, no qual os indivíduos desse "mundo" se interessam por tudo que está relacionado à tecnologia e eletrônica.
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

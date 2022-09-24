@@ -6,12 +6,14 @@ import {
   Text,
   Button,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const Help = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -32,6 +34,7 @@ const Help = () => {
         </Text>
         <Button as={'a'} bg='blue.400' _hover={{bg: 'blue.600'}} color='white' href='/contact'>Obter ajuda</Button>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

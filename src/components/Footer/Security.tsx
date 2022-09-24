@@ -5,12 +5,14 @@ import {
   Divider,
   Text,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const Security = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -29,6 +31,7 @@ const Security = () => {
             A finalidade da Ducktors é proporcionar um espaço que pessoas possam compartilhar sua arte. Violência, assédio e outros tipos de comportamentos semelhantes impedem que as pessoas se expressem e diminuem o valor da arte. Nossas regras foram criadas para garantir que todas as pessoas possam participar da cultura com liberdade e segurança.
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

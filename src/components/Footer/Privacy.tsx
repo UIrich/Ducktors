@@ -6,6 +6,7 @@ import {
   Text,
   Link,
   Wrap,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 import { Link as RouteLink } from "react-router-dom";
@@ -13,6 +14,7 @@ import { Link as RouteLink } from "react-router-dom";
 const Privacy = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -37,6 +39,7 @@ const Privacy = () => {
         </Text>
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };

@@ -7,12 +7,14 @@ import {
   Wrap,
   ListItem,
   UnorderedList,
+  SlideFade,
   Container,
 } from '@chakra-ui/react';
 
 const Cookies = () => {
   return (
     <Container maxW={'6xl'} p="12">
+      <SlideFade in offsetX={60}>
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -43,6 +45,7 @@ const Cookies = () => {
           </UnorderedList>
         </Text>
       </Wrap>
+      </SlideFade>
     </Container>
   );
 };
