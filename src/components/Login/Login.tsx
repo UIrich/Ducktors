@@ -6,6 +6,7 @@ import {
     Input,
     Checkbox,
     Stack,
+    Text,
     Link,
     Button,
     Heading,
@@ -55,6 +56,11 @@ import {
                   }}>
                   Logar
                 </Button>
+              </Stack>
+              <Stack pt={6}>
+                <Text align={'center'}>
+                  Não tem uma conta? <Link as={RouteLink} to='/signup' color={'blue.400'}>Cadastrar</Link>
+                </Text>
               </Stack>
             </Stack>
           </Box>
