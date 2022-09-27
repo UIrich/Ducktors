@@ -9,29 +9,27 @@ import {
     Button,
     FormControl,
     FormLabel,
-    Textarea,
     Input,
     Box,
   } from "@chakra-ui/react";
   import React, { useState } from "react";
   
-  const PostModal = ({ data, setData, dataEdit, isOpen, onClose }) => {
-    const [title, setTitle] = useState(dataEdit.title || "");
-    const [text, setText] = useState(dataEdit.text || "");
+  const GroupModal = ({ data, setData, dataEdit, isOpen, onClose }) => {
+    const [community, setCommunity] = useState(dataEdit.community || "");
   
     const handleSave = () => {
-      if (!title || !text) return;
+      if (!community) return;
   
       if (Object.keys(dataEdit).length) {
-        data[dataEdit.index] = { title, text };
+        data[dataEdit.index] = { community };
       }
   
-      if (titleAlreadyExists()) {
-        return alert("Já existe uma publicação com esse nome!");
+      if (communityAlreadyExists()) {
+        return alert("Já existe uma comunidade com esse nome!");
       }
   
       if (Object.keys(dataEdit).length) {
-        data[dataEdit.index] = { title, text };
+        data[dataEdit.index] = { community };
       }
   
       const newDataArray = !Object.keys(dataEdit).length
@@ -45,9 +43,9 @@ import {
       onClose();
     };
   
-    const titleAlreadyExists = () => {
-      if (dataEdit.title !== title && data?.length) {
-        return data.find((item) => item.title === title);
+    const communityAlreadyExists = () => {
+      if (dataEdit.community !== community && data?.length) {
+        return data.find((item) => item.community === community);
       }
   
       return false;
@@ -58,25 +56,16 @@ import {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Nova postagem</ModalHeader>
+            <ModalHeader>Novo grupo</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <FormControl display="flex" flexDir="column" gap={4}>
                 <Box>
-                  <FormLabel>Título</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <Input
                     type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                </Box>
-                <Box>
-                  <FormLabel>Texto</FormLabel>
-                  <Textarea
-                    type="text"
-                    resize={"none"}
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    value={community}
+                    onChange={(e) => setCommunity(e.target.value)}
                   />
                 </Box>
               </FormControl>
@@ -96,4 +85,4 @@ import {
     );
   };
   
-  export default PostModal;
+  export default GroupModal;

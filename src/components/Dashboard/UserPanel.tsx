@@ -4,7 +4,6 @@ import {
   Flex,
   Box,
   chakra,
-  useDisclosure,
   Table,
   Thead,
   Tbody,
@@ -16,6 +15,7 @@ import {
   Text,
   Button,
   IconButton,
+  useDisclosure,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react';

@@ -4,7 +4,6 @@ import {
   Flex,
   Box,
   chakra,
-  useDisclosure,
   Table,
   Thead,
   Tbody,
@@ -16,11 +15,11 @@ import {
   Text,
   Button,
   IconButton,
+  useDisclosure,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import PostModal from './PostModal.jsx';
-
 
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 

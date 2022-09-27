@@ -23,7 +23,7 @@ import {
       if (!name || !email || !password) return;
   
       if (emailAlreadyExists()) {
-        return alert("E-mail já cadastrado!");
+        return alert("Já existe um usuário com esse e-mail!");
       }
   
       if (Object.keys(dataEdit).length) {
