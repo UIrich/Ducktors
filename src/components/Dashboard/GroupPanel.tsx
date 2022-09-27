@@ -25,8 +25,6 @@ export default function Home() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
   const tableHeadColor = useColorModeValue("gray.200", "gray.600");
 
-  const [valueSearch, setValueSearch] = useState('');
-
   const isLgVersion = useBreakpointValue({
     base: false,
     lg: true,

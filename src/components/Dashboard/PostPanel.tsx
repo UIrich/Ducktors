@@ -4,6 +4,7 @@ import {
   Flex,
   Box,
   chakra,
+  useDisclosure,
   Table,
   Thead,
   Tbody,
@@ -18,14 +19,18 @@ import {
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import PostModal from './PostModal.jsx';
+
 
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [data, setData] = useState([]);
+  const [dataEdit, setDataEdit] = useState({});
+
   const borderColor = useColorModeValue("gray.200", "gray.600");
   const tableHeadColor = useColorModeValue("gray.200", "gray.600");
-
-  const [valueSearch, setValueSearch] = useState('');
 
   const isLgVersion = useBreakpointValue({
     base: false,
@@ -83,6 +88,7 @@ export default function Home() {
             colorScheme="blue"
             leftIcon={<Icon as={FaPlus} fontSize="16" />}
             icon={<Icon as={FaPlus} fontSize="16" />}
+            onClick={() => [setDataEdit({}), onOpen()]}
             title="Criar postagem"
           >
             {isMdVersion && <Text>Criar postagem</Text>}
@@ -144,6 +150,15 @@ export default function Home() {
           </Table>
         </Box>
       </Box>
+      {isOpen && (
+        <PostModal
+          isOpen={isOpen}
+          onClose={onClose}
+          data={data}
+          setData={setData}
+          dataEdit={dataEdit}
+        />
+      )}
     </Flex>
     </Box>
   )
