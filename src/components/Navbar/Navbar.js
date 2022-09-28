@@ -9,14 +9,14 @@ import {
   Avatar,
   MenuButton,
   MenuItem,
+  Image,
   MenuDivider,
   MenuList,
-  Text,
-  Link,
   useColorMode,
 } from '@chakra-ui/react';
 import { Link as RouteLink } from "react-router-dom";
 import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import Logo from '../../assets/logo.svg';
 import UnknownAvatarImage from '../../assets/grayduck.svg';
 
 export default function Nav() {
@@ -26,12 +26,9 @@ export default function Nav() {
       <Box bg={useColorModeValue('white', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box mr='5'>
-            <Text
-            fontWeight={'bold'}>
-            <Link as={RouteLink} to='/'>
-            Ducktors
-            </Link>
-            </Text>
+            <RouteLink to="/">
+            <Image src={Logo} w="10em"/>
+            </RouteLink>
             </Box>
               <Stack
           flex={{ base: 1, md: 0 }}

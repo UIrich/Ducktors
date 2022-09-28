@@ -11,16 +11,13 @@ import {
   Button,
   Link,
   useColorMode,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Text,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom";
 import { FaUserTimes, FaClipboardCheck, FaUserAlt } from "react-icons/fa";
-import { FiMenu, FiSearch } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { HiUserGroup } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
