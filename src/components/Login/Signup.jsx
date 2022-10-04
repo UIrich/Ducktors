@@ -16,10 +16,31 @@ import {
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import { Link as RouteLink } from "react-router-dom";
+  import Axios from 'axios';
   import React from 'react';
   
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);
+    const [values, setValues] = useState();
+    
+    const HandleChangeValues = (value) => {
+        setValues(prevValue =>({
+            ...prevValue,
+            [value.target.name]: value.target.value,
+        }))
+    };
+
+    const HandleClickButton = () => {
+        Axios.post("http://localhost:5000/users/signup", {
+                email: values.email,
+                senha: values.senha
+            }).then((response) =>{
+                console.log(response)
+                if (values.email == response.data[0].email && values.senha ==  response.data[0].senha){
+                console.log('coming in hot')
+                }
+            })
+    }
   
     return (
       <Flex
@@ -39,18 +60,18 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-                  <FormControl id="nick" isRequired>
+                  <FormControl isRequired>
                     <FormLabel>Nick</FormLabel>
-                    <Input type="text" />
+                    <Input onChange={HandleChangeValues} type="text" id="nick" placeholder='Nick'/>
                   </FormControl>
-              <FormControl id="email" isRequired>
+              <FormControl isRequired>
                 <FormLabel>E-mail</FormLabel>
-                <Input type="email" />
+                <Input onChange={HandleChangeValues} type="email" id="email" placeholder="E-mail"/>
               </FormControl>
-              <FormControl id="password" isRequired>
+              <FormControl isRequired>
                 <FormLabel>Senha</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input onChange={HandleChangeValues} type={showPassword ? 'text' : 'password'} id="senha" placeholder='Senha'/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -64,6 +85,7 @@ import {
               </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
+                  onClick={()=>HandleClickButton()}
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}

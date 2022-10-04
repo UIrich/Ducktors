@@ -1,4 +1,4 @@
-import SignupCard from '../components/Login/Signup.tsx';
+import SignupCard from '../components/Login/Signup.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function Signup() {

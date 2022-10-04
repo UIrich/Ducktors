@@ -12,10 +12,34 @@ import {
     Heading,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import { useState } from 'react';
   import { Link as RouteLink } from "react-router-dom";
+  import Axios  from 'axios';
   import React from 'react';
   
   export default function SimpleCard() {
+    const [values, setValues] = useState();
+    
+    const HandleChangeValues = (value) => {
+        setValues(prevValue =>({
+            ...prevValue,
+            [value.target.name]: value.target.value,
+        }))
+    };
+
+    const HandleClickButton = () => {
+        Axios.post("http://localhost:5000/users/login", {
+                nick: values.nick,
+                email: values.email,
+                senha: values.senha
+            }).then((response) =>{
+                console.log(response)
+                if (values.nick == response.data[0].nick && values.email == response.data[0].email && values.senha ==  response.data[0].senha){
+                console.log('coming in hot')
+                }
+            })
+    }
+
     return (
       <Flex
         minH={'100vh'}
@@ -32,13 +56,13 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-              <FormControl id="email">
+              <FormControl>
                 <FormLabel>E-mail</FormLabel>
-                <Input type="email" />
+                <Input onChange={HandleChangeValues} type="email" id="email" placeholder="E-mail"/>
               </FormControl>
-              <FormControl id="password">
+              <FormControl>
                 <FormLabel>Senha</FormLabel>
-                <Input type="password" />
+                <Input onClick={HandleChangeValues} type="password" id="senha" placeholder="Senha"/>
               </FormControl>
               <Stack spacing={10}>
                 <Stack
@@ -49,6 +73,7 @@ import {
                   <Link as={RouteLink} to='/forgotpassword' color={'blue.400'}>Esqueceu a senha?</Link>
                 </Stack>
                 <Button
+                  onClick={()=>HandleClickButton()} 
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{

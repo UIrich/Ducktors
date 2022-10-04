@@ -16,13 +16,13 @@ import React from 'react';
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={4} w={'full'} maxW={'md'}>
             <Heading fontSize={'2xl'}>Faça acesso na sua conta</Heading>
-            <FormControl id="email">
+            <FormControl>
               <FormLabel>E-mail</FormLabel>
-              <Input type="email" />
+              <Input type="email" placeholder="E-mail"/>
             </FormControl>
-            <FormControl id="password">
+            <FormControl>
               <FormLabel>Senha</FormLabel>
-              <Input type="password" />
+              <Input type="password" placeholder="Senha"/>
             </FormControl>
             <Stack spacing={6}>
               <Stack
