@@ -104,7 +104,7 @@ export default function Home() {
               <Tr>
                 <Th>Nick</Th>
                 {isMdVersion && <Th>E-mail</Th>}
-                {isLgVersion && <Th>Senha</Th>}
+                <Th width="8"></Th>
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
