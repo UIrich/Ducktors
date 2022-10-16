@@ -21,8 +21,13 @@ import {
   
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);
+    
     const [values, setValues] = useState();
     
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+    };
+
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
             ...prevValue,
@@ -32,11 +37,12 @@ import {
 
     const HandleClickButton = () => {
         Axios.post("http://localhost:5000/users/signup", {
+                nick: values.nick,
                 email: values.email,
                 senha: values.senha
             }).then((response) =>{
                 console.log(response)
-                if (values.email == response.data[0].email && values.senha ==  response.data[0].senha){
+                if (values.nick == response.data[0].nick && values.email == response.data[0].email && values.senha ==  response.data[0].senha){
                 console.log('coming in hot')
                 }
             })
@@ -54,6 +60,7 @@ import {
               Cadastrar
             </Heading>
           </Stack>
+          <form onSubmit={handleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -62,16 +69,16 @@ import {
             <Stack spacing={4}>
                   <FormControl isRequired>
                     <FormLabel>Nick</FormLabel>
-                    <Input onChange={HandleChangeValues} type="text" id="nick" placeholder='Nick'/>
+                    <Input onChange={HandleChangeValues} type="text" autoComplete="username" name="nick" id="nick" placeholder='Nick'/>
                   </FormControl>
               <FormControl isRequired>
                 <FormLabel>E-mail</FormLabel>
-                <Input onChange={HandleChangeValues} type="email" id="email" placeholder="E-mail"/>
+                <Input onChange={HandleChangeValues} type="email" autoComplete="current-email" name="email" id="email" placeholder="E-mail"/>
               </FormControl>
               <FormControl isRequired>
                 <FormLabel>Senha</FormLabel>
                 <InputGroup>
-                  <Input onChange={HandleChangeValues} type={showPassword ? 'text' : 'password'} id="senha" placeholder='Senha'/>
+                  <Input onChange={HandleChangeValues} type={showPassword ? 'text' : 'password'} autoComplete="current-password" name="senha" id="senha" placeholder='Senha'/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -103,6 +110,7 @@ import {
               </Stack>
             </Stack>
           </Box>
+          </form>
         </Stack>
       </Flex>
     );

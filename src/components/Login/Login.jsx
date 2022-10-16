@@ -20,6 +20,10 @@ import {
   export default function SimpleCard() {
     const [values, setValues] = useState();
     
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+    };
+
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
             ...prevValue,
@@ -29,12 +33,11 @@ import {
 
     const HandleClickButton = () => {
         Axios.post("http://localhost:5000/users/login", {
-                nick: values.nick,
                 email: values.email,
                 senha: values.senha
             }).then((response) =>{
                 console.log(response)
-                if (values.nick == response.data[0].nick && values.email == response.data[0].email && values.senha ==  response.data[0].senha){
+                if (values.email == response.data[0].email && values.senha ==  response.data[0].senha){
                 console.log('coming in hot')
                 }
             })
@@ -50,6 +53,7 @@ import {
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Faça acesso na sua conta</Heading>
           </Stack>
+          <form onSubmit={handleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -58,11 +62,11 @@ import {
             <Stack spacing={4}>
               <FormControl>
                 <FormLabel>E-mail</FormLabel>
-                <Input onChange={HandleChangeValues} type="email" id="email" placeholder="E-mail"/>
+                <Input onChange={HandleChangeValues} type="email" autoComplete="current-email" name="email" id="email" placeholder="E-mail"/>
               </FormControl>
               <FormControl>
                 <FormLabel>Senha</FormLabel>
-                <Input onClick={HandleChangeValues} type="password" id="senha" placeholder="Senha"/>
+                <Input onClick={HandleChangeValues} type="password" autoComplete="current-password" name="senha" id="senha" placeholder="Senha"/>
               </FormControl>
               <Stack spacing={10}>
                 <Stack
@@ -89,6 +93,7 @@ import {
               </Stack>
             </Stack>
           </Box>
+          </form>
         </Stack>
       </Flex>
     );
