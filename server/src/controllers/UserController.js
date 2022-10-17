@@ -103,4 +103,15 @@ export class UserController{
             return res.status(500).send('Error to delete user: ' + error);
         }
     }
+
+    static async Login(req, res){
+        try {
+            const { email, senha, nick, stat, nivel  } = req.body
+            const Login = await new User(email, senha, nick, stat, nivel).Login()
+            return res.status(200).json(Login)
+        } 
+        catch (error) {
+            console.log('User login with error: ' + error + '.')
+        }
+    }
 };

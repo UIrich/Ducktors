@@ -35,7 +35,7 @@ import {
     const HandleClickButton = () => {
         console.log(values)
 
-        Axios.post("http://localhost:5000/users/signup", {
+        Axios.post("http://localhost:5000/users/add", {
           nick: values.nick,
           email: values.email,
           senha: values.senha

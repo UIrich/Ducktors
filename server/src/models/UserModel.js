@@ -68,4 +68,20 @@ export class User{
             return false;
         }
     }
+
+    async Login(){
+        try {
+            const { recordset } = await con.query(`SELECT * FROM id_user 
+                WHERE email = '${this.email}' and senha = ${this.senha} and status = 1`)
+            if (recordset.length > 0)
+                return recordset
+            else
+                return false
+        } 
+        catch (error) 
+        {
+            console.log('Model error ' + error)
+            return error
+        }
+    }
 };

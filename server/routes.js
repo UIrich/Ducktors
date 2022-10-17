@@ -10,6 +10,7 @@ routes.get("/", (req, res) => {
 
 routes.get("/users", UserController.Select);
 routes.post("/users/add", UserController.Insert);
+routes.post('/usuario/login', UserController.Login)
 routes.put("/users/edit/:id", UserController.Update);
 routes.delete("/users/remove/:id", UserController.Delete);
 
