@@ -14,7 +14,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { Link as RouteLink } from "react-router-dom";
-  import Axios  from 'axios';
+  import { AxiosUser }  from '../../services/Axios.jsx';
   import React from 'react';
   
   export default function SimpleCard() {
@@ -28,16 +28,12 @@ import {
     };
 
     const HandleClickButton = () => {
-        Axios.post("http://localhost:3001/users/login", {
-                email: values.email,
-                senha: values.senha
-            }).then((response) =>{
-                console.log(response)
-                if (values.email == response.data[0].email && values.senha ==  response.data[0].senha){
-                console.log('coming in hot')
-                }
-            })
+      if(!values.email || !values.senha){
+        console.error("Existem campos a serem preenchidos.");
+    } else {
+        new AxiosUser().AxiosLogin(values.email, values.senha)
     }
+}
 
     return (
       <Flex

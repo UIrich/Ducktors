@@ -1,78 +1,106 @@
 import { CreatePool } from "../utils/server.js";
-const connection = await CreatePool();
+const con = await CreatePool();
 
 export class User{
-    constructor(id_user, nick, email, senha, nivel, stat){
-        this.id_user = id_user,
-        this.nick = nick,
-        this.email = email,
-        this.senha = senha,
-        this.nivel = nivel,
-        this.stat = stat
-    };
-
-    static async Select(){
-        try{
-            const {recordsets} = await connection.query(`SELECT * FROM user ORDER BY id_user`)
-
-            if(recordsets[0] != ''){
-                return recordsets[0];
-            }
+    constructor(email, senha, nick, stat, id_user){
+        if(email == '' || email == null || email == undefined){
+            this.email = ''
+        }else{
+            this.email = email 
         }
-        catch(err){
-            console.log(`Error to select 'user' located on model: ${err}`)
-            await connection.close();
-            return false;
+
+        if(senha == '' || senha == null || senha == undefined){
+            this.senha = ''
+        }else{
+            this.senha = senha
+        }
+
+        if(nick == '' || nick == null || nick == undefined){
+            this.nome = ''
+        }else{
+            this.nome = nome
+        }
+
+        if(stat == '' || stat == null || stat == undefined){
+            this.stat = 1
+        }else{
+            this.stat = 1
+        }
+
+        if(id_user == '' || id_user == null || id_user == undefined){
+            this.id_user = ''
+        }else{
+            this.id_user = id_user
+        }
+
+    }
+
+    static async Get(){
+        try {
+            const { recordset } = await con.query('select * from usuarios')
+            return recordset
+        } 
+        catch (error)
+        {
+            console.log('error model ' + error)
+            return error(error)
         }
     }
 
-    static async Insert(nick, email, senha, nivel, stat){
-        try{
-            const { rowsAffected } = await connection.query(`INSERT INTO USER VALUES('${nick}', ${email}, 
-            '${senha}', ${nivel}, ${stat})`)
-            if(rowsAffected[0] == 1){
-                return new User(nick, email, senha, nivel, stat);
-            }
-            else{
-                return false;
-            }
-        }
-        catch(err){
-            console.log(`Error to insert 'user' located on model: ${err}`)
-            await connection.close();
-            return false;
+    async GetProfile(){
+        try {
+            const { recordset } = await con.query(`select nick, status, id_user from usuarios where nick = '${this.nick}'`)
+            return recordset
+        } 
+        catch (error)
+        {
+            console.log('error model ' + error)
+            return error(error)
         }
     }
 
-    static async Update(id_user, nick, email, senha, nivel, stat){
-        try{
-            const { rowsAffected } = await connection.query(`UPDATE USER SET NICK = '${nick}', EMAIL = '${email}', 
-            SENHA = '${senha}', NIVEL = ${nivel}, STAT = ${stat} WHERE id_user = ${id_user}`)
-            return rowsAffected;
-        }
-        catch(err){
-            console.log(`Error on update 'user' located on model: ${err}`)
-            await connection.close();
-            return false;
+    async Insert(){
+        try {
+            const { rowsAffected } = con.query(`insert into usuarios values ('${this.email}', 
+            '${this.senha}','${this.nick}', ${this.stat})`)
+            return true
+        } 
+        catch (error) 
+        {
+            console.log('error model ' + error)
+            return (error)
         }
     }
 
-    static async Delete(id_user){
-        try{
-            const { rowsAffected } = await connection.query(`DELETE FROM USER WHERE id_user = ${id_user}`)
-            return rowsAffected;
+    async Update(){
+        try {
+            const { rowsAffected } = await con.query(`update usuarios set email = '${this.email}' , 
+            senha = '${this.senha}', nick = '${this.nick}' where id_user = ${this.id_user}`)
+            return rowsAffected
+        } 
+        catch (error) 
+        {
+            console.log('error model ' + error)
+            return (error)
         }
-        catch(err){
-            console.log(`Error to delete 'user' located on model: ${err}`)
-            await connection.close();
-            return false;
+    }
+
+    async Delete(){
+        try {
+            const { rowsAffected } = await con.query(`delete from usuarios where id_user = ${this.id_user}`)
+            return rowsAffected
+        } 
+        catch (error) 
+        {
+            console.log('error model ' + error)
+            return (error)
         }
     }
 
     async Login(){
         try {
-            const { recordset } = await con.query(`SELECT * FROM id_user 
-                WHERE email = '${this.email}' and senha = ${this.senha} and status = 1`)
+            const { recordset } = await con.query(`SELECT * FROM usuarios 
+                WHERE email = '${this.email}' and senha = ${this.senha} and stat = 1`)
             if (recordset.length > 0)
                 return recordset
             else
@@ -80,8 +108,8 @@ export class User{
         } 
         catch (error) 
         {
-            console.log('Model error ' + error)
+            console.log('model error ' + error)
             return error
         }
     }
-};
+}
