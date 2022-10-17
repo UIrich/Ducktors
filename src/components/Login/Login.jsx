@@ -19,10 +19,6 @@ import {
   
   export default function SimpleCard() {
     const [values, setValues] = useState();
-    
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-    };
 
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
@@ -53,7 +49,6 @@ import {
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Faça acesso na sua conta</Heading>
           </Stack>
-          <form onSubmit={handleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -77,6 +72,7 @@ import {
                   <Link as={RouteLink} to='/forgotpassword' color={'blue.400'}>Esqueceu a senha?</Link>
                 </Stack>
                 <Button
+                  type="submit"
                   onClick={()=>HandleClickButton()} 
                   bg={'blue.400'}
                   color={'white'}
@@ -93,7 +89,6 @@ import {
               </Stack>
             </Stack>
           </Box>
-          </form>
         </Stack>
       </Flex>
     );

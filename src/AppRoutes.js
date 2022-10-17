@@ -30,7 +30,7 @@ import Users from './pages/admin/Users';
 
 
 export function AppRoutes() {
-    return(
+    return (
         <BrowserRouter>
         <ScrollToTop>
             <Routes>

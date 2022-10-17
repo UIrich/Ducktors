@@ -23,10 +23,7 @@ import {
     const [showPassword, setShowPassword] = useState(false);
     
     const [values, setValues] = useState();
-    
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-    };
+
 
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
@@ -36,16 +33,15 @@ import {
     };
 
     const HandleClickButton = () => {
+        console.log(values)
+
         Axios.post("http://localhost:5000/users/signup", {
-                nick: values.nick,
-                email: values.email,
-                senha: values.senha
-            }).then((response) =>{
-                console.log(response)
-                if (values.nick == response.data[0].nick && values.email == response.data[0].email && values.senha ==  response.data[0].senha){
-                console.log('coming in hot')
-                }
-            })
+          nick: values.nick,
+          email: values.email,
+          senha: values.senha
+        }).then((response) =>{
+            console.log(response)
+        })
     }
   
     return (
@@ -60,7 +56,6 @@ import {
               Cadastrar
             </Heading>
           </Stack>
-          <form onSubmit={handleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -92,8 +87,8 @@ import {
               </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
+                  type="submit"
                   onClick={()=>HandleClickButton()}
-                  loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
                   color={'white'}
@@ -110,7 +105,6 @@ import {
               </Stack>
             </Stack>
           </Box>
-          </form>
         </Stack>
       </Flex>
     );
