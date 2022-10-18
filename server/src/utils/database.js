@@ -16,11 +16,11 @@ export const con = {
     idleTimeoutMillis: 30000
   }
 
-  /*
-    server: 'localhost',
-    port: 1433,
-    user: 'Ulrich',
-    password: 'ducktors',
+  /* 
+  server: 'DESKTOP-S7QUL36',
+    port: 1434,
+    user: 'sa',
+    password: '123',
     database: 'ducktors',
     options: {
       enableArithAbort : true,
@@ -33,5 +33,5 @@ export const con = {
       min: 0,
       idleTimeoutMillis: 30000
     }
-    */
+  */
 }

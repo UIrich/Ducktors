@@ -16,9 +16,9 @@ export class User{
         }
 
         if(nick == '' || nick == null || nick == undefined){
-            this.nome = ''
+            this.nick = ''
         }else{
-            this.nome = nome
+            this.nick = nick
         }
 
         if(stat == '' || stat == null || stat == undefined){
