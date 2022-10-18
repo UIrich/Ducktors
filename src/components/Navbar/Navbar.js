@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { getToken } from '../../contexts/TokenAuth.jsx';
 import { Link as RouteLink } from "react-router-dom";
-import { EditIcon, QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import AvatarImage from '../../assets/duck.svg';
 import Logo from '../../assets/logo.svg';
 import UnknownAvatarImage from '../../assets/grayduck.svg';
@@ -59,9 +59,6 @@ export default function Nav() {
               />
             </MenuButton>
             <MenuList>
-              <MenuItem icon={<EditIcon/>} as="a" href={`/profile/${getToken().nick}`}>
-              Perfil
-              </MenuItem>
               <MenuItem icon={<QuestionIcon/>} as="a" href="/help">
               Central de ajuda
               </MenuItem>

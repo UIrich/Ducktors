@@ -24,6 +24,11 @@ import {
     
     const [values, setValues] = useState();
 
+    const HandleSubmit = (e) => {
+      e.preventDefault();
+      e.target.reset();
+  };
+
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
             ...prevValue,
@@ -55,6 +60,7 @@ import {
               Cadastrar
             </Heading>
           </Stack>
+          <form onSubmit={HandleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -104,6 +110,7 @@ import {
               </Stack>
             </Stack>
           </Box>
+          </form>
         </Stack>
       </Flex>
     );
