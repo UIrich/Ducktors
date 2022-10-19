@@ -2,7 +2,19 @@ import { CreatePool } from "../utils/server.js";
 const con = await CreatePool();
 
 export class User{
-    constructor(email, senha, nick, stat, id_user){
+    constructor(id_user, nick, email, senha, stat){
+        if(id_user == '' || id_user == null || id_user == undefined){
+            this.id_user = ''
+        }else{
+            this.id_user = id_user
+        }
+
+        if(nick == '' || nick == null || nick == undefined){
+            this.nick = ''
+        }else{
+            this.nick = nick
+        }
+
         if(email == '' || email == null || email == undefined){
             this.email = ''
         }else{
@@ -15,22 +27,10 @@ export class User{
             this.senha = senha
         }
 
-        if(nick == '' || nick == null || nick == undefined){
-            this.nick = ''
-        }else{
-            this.nick = nick
-        }
-
         if(stat == '' || stat == null || stat == undefined){
             this.stat = 1
         }else{
             this.stat = 1
-        }
-
-        if(id_user == '' || id_user == null || id_user == undefined){
-            this.id_user = ''
-        }else{
-            this.id_user = id_user
         }
 
     }
@@ -49,7 +49,7 @@ export class User{
 
     async GetProfile(){
         try {
-            const { recordset } = await con.query(`select nick, status, id_user from usuarios where nick = '${this.nick}'`)
+            const { recordset } = await con.query(`select id_user, nick, stat from usuarios where nick = '${this.nick}'`)
             return recordset
         } 
         catch (error)
@@ -61,7 +61,7 @@ export class User{
 
     async Insert(){
         try {
-            const { rowsAffected } = con.query(`insert into usuarios values ('${this.email}', 
+            const { rowsAffected } = con.query(`insert into usuarios values ('${this.email}',
             '${this.senha}','${this.nick}', ${this.stat})`)
             return true
         } 
@@ -74,8 +74,8 @@ export class User{
 
     async Update(){
         try {
-            const { rowsAffected } = await con.query(`update usuarios set email = '${this.email}' , 
-            senha = '${this.senha}', nick = '${this.nick}' where id_user = ${this.id_user}`)
+            const { rowsAffected } = await con.query(`update usuarios set nick = '${this.nick}' , 
+            email = '${this.email}', senha = '${this.senha}' where id_user = ${this.id_user}`)
             return rowsAffected
         } 
         catch (error) 
@@ -108,7 +108,7 @@ export class User{
         } 
         catch (error) 
         {
-            console.log('model error ' + error)
+            console.log('error model ' + error)
             return error
         }
     }
