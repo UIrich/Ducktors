@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Flex,
   Box,
@@ -20,12 +20,14 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import UserModal from './UserModal.jsx';
+import Axios from 'axios';
 
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState([]);
+  const [users, setUsers] = useState([]);
   const [dataEdit, setDataEdit] = useState({});
 
   const borderColor = useColorModeValue("gray.200", "gray.600");
@@ -42,6 +44,20 @@ export default function Home() {
   });
 
   const asButton = useBreakpointValue({ base: IconButton, md: Button })
+
+  function LoadUsers() {
+    Axios.get("http://localhost:5000/user/get").then((res) => {
+      setUsers(res.data.reverse());
+    });
+  }
+
+  useEffect(() => {
+    LoadUsers();
+  }, []);
+
+  function DeleteUser(id_user) {
+    Axios.delete(`http://localhost:5000/user/delete/${id_user}`).then(history.go(0));
+  }
 
   return (
     <Box maxW="9xl" mx={'auto'} pt={5} ml={{ base: 0, md: 60 }} px={{ base: 2, sm: 12, md: 17 }}>
@@ -110,9 +126,10 @@ export default function Home() {
               </Tr>
             </Thead>
             <Tbody>
-                  <Tr>
-                    <Td borderColor={borderColor}></Td>
-                    {isMdVersion && <Td borderColor={borderColor}></Td>}
+                {users.map((data, index) => (
+                  <Tr key={index}>
+                    <Td borderColor={borderColor}>{data.nick}</Td>
+                    {isMdVersion && <Td borderColor={borderColor}>{data.email}</Td>}
                     {isLgVersion && <Td borderColor={borderColor}></Td>}
                     <Td borderColor={borderColor}>
                       <Button
@@ -135,12 +152,14 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
+                        onClick={()=>DeleteUser(data.id_user)}
                         title="Apagar usuário"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>
                     </Td>
                   </Tr>
+                ))}
             </Tbody>
               <Tfoot>
                 <Tr>

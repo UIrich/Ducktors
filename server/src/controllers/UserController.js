@@ -29,7 +29,7 @@ export class UserController{
     static async InsertUser(req, res){
         try {
                 const { nick, email, senha } = req.body
-                const InsertUser = await new User(1, nick, email, senha ).Insert()
+                const InsertUser = await new User(1, nick, email, senha).Insert()
                 return res.status(200).json(InsertUser)
         } 
         catch (error) 
@@ -69,8 +69,8 @@ export class UserController{
 
     static async LoginUser(req, res){
         try {
-            const { nick, email, senha, stat } = req.body
-            const LoginUser = await new User(nick, email, senha, stat).Login()
+            const { email, senha } = req.body
+            const LoginUser = await new User(email, senha).Login()
             return res.status(200).json(LoginUser)
         } 
         catch (error) {

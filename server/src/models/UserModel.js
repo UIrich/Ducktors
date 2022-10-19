@@ -93,7 +93,7 @@ export class User{
     async Login(){
         try {
             const { recordset } = await con.query(`SELECT * FROM usuarios 
-                WHERE email = '${this.email}' and senha = ${this.senha} and stat = 1`)
+                WHERE email = '${this.email}' and senha = '${this.senha}'`)
             if (recordset.length > 0)
                 return recordset
             else

@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Navbar/Sidebar.tsx'
-import PostPanel from '../../components/Dashboard/PostPanel.tsx';
+import PostPanel from '../../components/Dashboard/PostPanel.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function Posts() {

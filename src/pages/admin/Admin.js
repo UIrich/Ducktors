@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function SplitScreen() {
     return (
-    <div class="SplitScreen">
+    <div className="SplitScreen">
     <ChakraProvider>
         <SplitScreenCard/>
     </ChakraProvider>

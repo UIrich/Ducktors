@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Navbar/Sidebar.tsx'
-import UserPanel from '../../components/Dashboard/UserPanel.tsx';
+import UserPanel from '../../components/Dashboard/UserPanel.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function Users() {

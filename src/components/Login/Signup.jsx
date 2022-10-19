@@ -15,7 +15,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-  import { Link as RouteLink } from "react-router-dom";
+  import { Link as RouteLink, useNavigate } from "react-router-dom";
   import Axios from 'axios';
   import React from 'react';
   
@@ -24,9 +24,10 @@ import {
     
     const [values, setValues] = useState();
 
+    const navigate = useNavigate()
+
     const HandleSubmit = (e) => {
       e.preventDefault();
-      e.target.reset();
   };
 
     const HandleChangeValues = (value) => {
@@ -41,9 +42,7 @@ import {
           nick: values.nick,
           email: values.email,
           senha: values.senha
-        }).then((response) =>{
-            console.log(response);
-        });
+        }).then(navigate('/login', {replace: true}));
     }
   
     return (
