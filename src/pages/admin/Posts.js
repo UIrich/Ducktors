@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Posts() {
     return (
-    <div class="Posts">
+    <div className="Posts">
     <ChakraProvider>
         <Sidebar/>
         <PostPanel/>

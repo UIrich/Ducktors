@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Dashboard() {
     return (
-    <div class="Dashboard">
+    <div className="Dashboard">
     <ChakraProvider>
         <Sidebar/>
         <StatPanel/>

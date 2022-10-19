@@ -28,8 +28,8 @@ export class UserController{
 
     static async InsertUser(req, res){
         try {
-                const { nick, email, senha, stat } = req.body
-                const InsertUser = await new User(nick, email, senha, stat).Insert()
+                const { nick, email, senha } = req.body
+                const InsertUser = await new User(1, nick, email, senha ).Insert()
                 return res.status(200).json(InsertUser)
         } 
         catch (error) 

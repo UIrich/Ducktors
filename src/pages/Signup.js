@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Signup() {
     return (
-    <div class="Register">
+    <div className="Register">
     <ChakraProvider>
         <SignupCard/>
     </ChakraProvider>

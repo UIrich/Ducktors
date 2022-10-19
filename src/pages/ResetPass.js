@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function ResetPassword() {
     return (
-    <div class="ResetPassword">
+    <div className="ResetPassword">
     <ChakraProvider>
         <ResetPass/>
     </ChakraProvider>

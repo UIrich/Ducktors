@@ -37,15 +37,13 @@ import {
     };
 
     const HandleClickButton = () => {
-        console.log(values)
-
         Axios.post("http://localhost:5000/user/insert", {
           nick: values.nick,
           email: values.email,
           senha: values.senha
         }).then((response) =>{
-            console.log(response)
-        })
+            console.log(response);
+        });
     }
   
     return (

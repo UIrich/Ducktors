@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function ErrorResult() {
     return (
-    <div class="Error">
+    <div className="Error">
     <ChakraProvider>
         <Error/>
     </ChakraProvider>

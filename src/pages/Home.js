@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Home() {
     return (
-    <div class="Home">
+    <div className="Home">
     <ChakraProvider>
       <Navbar />
       <Carousel/>

@@ -2,7 +2,7 @@ import { CreatePool } from "../utils/server.js";
 const con = await CreatePool();
 
 export class User{
-    constructor(id_user, nick, email, senha, stat){
+    constructor(id_user, nick, email, senha ){
         if(id_user == '' || id_user == null || id_user == undefined){
             this.id_user = ''
         }else{
@@ -26,13 +26,6 @@ export class User{
         }else{
             this.senha = senha
         }
-
-        if(stat == '' || stat == null || stat == undefined){
-            this.stat = 1
-        }else{
-            this.stat = 1
-        }
-
     }
 
     static async Get(){
@@ -61,8 +54,8 @@ export class User{
 
     async Insert(){
         try {
-            const { rowsAffected } = con.query(`insert into usuarios values ('${this.email}',
-            '${this.senha}','${this.nick}', ${this.stat})`)
+            const { rowsAffected } = con.query(`insert into usuarios values ('${this.nick}',
+            '${this.email}','${this.senha}', 1)`)
             return true
         } 
         catch (error) 

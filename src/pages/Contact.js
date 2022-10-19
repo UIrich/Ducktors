@@ -3,7 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Contact() {
     return (
-    <div class="Contact">
+    <div className="Contact">
     <ChakraProvider>
         <ContactCard/>
     </ChakraProvider>

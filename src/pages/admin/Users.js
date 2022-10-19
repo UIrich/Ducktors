@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 function Users() {
     return (
-    <div class="Users">
+    <div className="Users">
     <ChakraProvider>
         <Sidebar/>
         <UserPanel/>

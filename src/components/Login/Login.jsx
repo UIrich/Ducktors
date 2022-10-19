@@ -29,7 +29,7 @@ import {
 
     const HandleClickButton = () => {
       if(!values.email || !values.senha){
-        console.error("Existem campos a serem preenchidos.");
+        console.error();
     } else {
         new AxiosUser().AxiosLogin(values.email, values.senha)
     }
@@ -68,7 +68,7 @@ import {
                   <Link as={RouteLink} to='/forgotpassword' color={'blue.400'}>Esqueceu a senha?</Link>
                 </Stack>
                 <Button
-                  type="submit"
+                  type="button"
                   onClick={()=>HandleClickButton()} 
                   bg={'blue.400'}
                   color={'white'}
