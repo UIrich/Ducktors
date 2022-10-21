@@ -1,4 +1,4 @@
-import SplitScreenCard from '../../components/Login/SplitScreen.tsx';
+import SplitScreenCard from '../../components/Login/SplitScreen.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function SplitScreen() {
