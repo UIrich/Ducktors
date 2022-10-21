@@ -13,11 +13,10 @@ import {
     useColorModeValue,
     Link,
   } from '@chakra-ui/react';
-  import { useState } from 'react';
+  import React, { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import { Link as RouteLink, useNavigate } from "react-router-dom";
   import Axios from 'axios';
-  import React from 'react';
   
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);

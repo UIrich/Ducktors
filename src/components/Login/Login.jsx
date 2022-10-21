@@ -12,10 +12,9 @@ import {
     Heading,
     useColorModeValue,
   } from '@chakra-ui/react';
-  import { useState } from 'react';
+  import React, { useState } from 'react';
   import { Link as RouteLink } from "react-router-dom";
   import { AxiosUser }  from '../../services/Axios.jsx';
-  import React from 'react';
   
   export default function SimpleCard() {
     const [values, setValues] = useState();

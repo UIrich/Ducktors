@@ -28,9 +28,9 @@ export class CommunityController{
 
     static async UpdateCommunity(req, res){
         try {
-                const { id_community } = req.params
+                const { id_comunidade } = req.params
                 const { nome, stat } = req.body
-                const UpdateUser = await new Community(id_community, nome, stat).Update()
+                const UpdateUser = await new Community(id_comunidade, nome, stat).Update()
                 return res.status(200).json(UpdateUser)
         } 
         catch (error) 
@@ -42,9 +42,9 @@ export class CommunityController{
 
     static async DeleteCommunity(req, res){
         try {
-                const { id_community } = req.params
+                const { id_comunidade } = req.params
                 const { nome, stat } = req.body
-                const DeleteCommunity = await new Community(id_community, nome, stat).Delete()
+                const DeleteCommunity = await new Community(id_comunidade, nome, stat).Delete()
                 return res.status(200).json(DeleteCommunity)
         } 
         catch (error) 

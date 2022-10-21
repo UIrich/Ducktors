@@ -13,43 +13,23 @@ import {
     Box,
   } from "@chakra-ui/react";
   import React, { useState } from "react";
+  import Axios from "axios";
   
-  const GroupModal = ({ data, setData, dataEdit, isOpen, onClose }) => {
-    const [community, setCommunity] = useState(dataEdit.community || "");
-  
-    const handleSave = () => {
-      if (!community) return;
-  
-      if (Object.keys(dataEdit).length) {
-        data[dataEdit.index] = { community };
-      }
-  
-      if (communityAlreadyExists()) {
-        return alert("Já existe uma comunidade com esse nome!");
-      }
-  
-      if (Object.keys(dataEdit).length) {
-        data[dataEdit.index] = { community };
-      }
-  
-      const newDataArray = !Object.keys(dataEdit).length
-        ? [...(data ? data : []), { title, text }]
-        : [...(data ? data : [])];
-  
-      localStorage.setItem("post", JSON.stringify(newDataArray));
-  
-      setData(newDataArray);
-  
-      onClose();
+  const GroupModal = ({ isOpen, onClose }) => {
+    const [values, setValues] = useState();
+
+    const HandleChangeValues = (value) => {
+        setValues(prevValue =>({
+            ...prevValue,
+            [value.target.name]: value.target.value,
+        }))
     };
   
-    const communityAlreadyExists = () => {
-      if (dataEdit.community !== community && data?.length) {
-        return data.find((item) => item.community === community);
-      }
-  
-      return false;
-    };
+    const HandleSubmit = (e) => {
+      Axios.post("http://localhost:5000/community/insert", {
+        nome: values.nome,
+      }).then(history.go(0))
+  }
   
     return (
       <>
@@ -64,15 +44,15 @@ import {
                   <FormLabel>Nome</FormLabel>
                   <Input
                     type="text"
-                    value={community}
-                    onChange={(e) => setCommunity(e.target.value)}
+                    name="nome"
+                    onChange={HandleChangeValues}
                   />
                 </Box>
               </FormControl>
             </ModalBody>
   
             <ModalFooter justifyContent="start">
-              <Button colorScheme="blue" mr={3} onClick={handleSave}>
+              <Button colorScheme="blue" mr={3} onClick={HandleSubmit}>
                 Salvar
               </Button>
               <Button colorScheme="gray" onClick={onClose}>

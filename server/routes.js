@@ -17,7 +17,7 @@ routes.put("/user/profile", UserController.GetUserProfile);
 
 routes.get("/community/get", CommunityController.GetCommunity);
 routes.post("/community/insert", CommunityController.InsertCommunity);
-routes.put("/community/update/:id_community", CommunityController.UpdateCommunity);
-routes.delete("/community/delete/:id_community", CommunityController.DeleteCommunity);
+routes.put("/community/update/:id_comunidade", CommunityController.UpdateCommunity);
+routes.delete("/community/delete/:id_comunidade", CommunityController.DeleteCommunity);
 
 export { routes }

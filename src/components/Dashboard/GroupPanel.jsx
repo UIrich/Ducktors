@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Flex,
   Box,
@@ -20,6 +20,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import GroupModal from './GroupModal.jsx';
+import Axios from "axios";
 
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
@@ -27,6 +28,7 @@ export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState([]);
   const [dataEdit, setDataEdit] = useState({});
+  const [communities, setCommunities] = useState([]);
   const borderColor = useColorModeValue("gray.200", "gray.600");
   const tableHeadColor = useColorModeValue("gray.200", "gray.600");
 
@@ -36,6 +38,20 @@ export default function Home() {
   });
 
   const asButton = useBreakpointValue({ base: IconButton, md: Button })
+
+  function LoadCommunity() {
+    Axios.get("http://localhost:5000/community/get").then((res) => {
+      setCommunities(res.data.reverse());
+    });
+  }
+
+  useEffect(() => {
+    LoadCommunity();
+  }, []);
+
+  function DeleteCommunity(id_comunidade) {
+    Axios.delete(`http://localhost:5000/community/delete/${id_comunidade}`).then(history.go(0));
+  }
 
   return (
     <Box maxW="9xl" mx={'auto'} pt={5} ml={{ base: 0, md: 60 }} px={{ base: 2, sm: 12, md: 17 }}>
@@ -96,14 +112,15 @@ export default function Home() {
             <Thead bg={tableHeadColor}>
               <Tr>
                 <Th>Nome</Th>
-                {isMdVersion && <Th>Status</Th>}
+                {isMdVersion &&<Th></Th>}
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
             </Thead>
             <Tbody>
-                  <Tr>
-                    <Td borderColor={borderColor}></Td>
+            {communities.map((data, index) => (
+                  <Tr key={index}>
+                    <Td borderColor={borderColor}>{data.nome}</Td>
                     {isMdVersion && <Td borderColor={borderColor}></Td>}
                     <Td borderColor={borderColor}>
                       <Button
@@ -126,12 +143,14 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
+                        onClick={()=>DeleteCommunity(data.id_comunidade)}
                         title="Apagar grupo"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>
                     </Td>
                   </Tr>
+            ))}
             </Tbody>
               <Tfoot>
                 <Tr>

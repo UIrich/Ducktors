@@ -13,7 +13,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Axios from "axios"
+import Axios from "axios";
 
 const UserModal = ({ isOpen, onClose }) => {
   const [values, setValues] = useState();
