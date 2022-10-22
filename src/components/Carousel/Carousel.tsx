@@ -30,15 +30,15 @@ export default function CaptionCarousel() {
   const cards = [
     {
       image:
-        "https://i.imgur.com/yvPbNmN.png",
+        "https://i.imgur.com/X8D35k1.png",
     },
     {
       image:
-        "https://i.imgur.com/ovJ5B13.png",
+        "https://i.imgur.com/JcikiNg.png",
     },
     {
       image:
-      "https://i.imgur.com/ObCX14d.png"
+      "https://i.imgur.com/GrmNA1n.png"
     },
   ];
 
@@ -85,7 +85,7 @@ export default function CaptionCarousel() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'3xl'}
+            height={'sm'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
