@@ -115,14 +115,6 @@ export default function Article(){
                 >
                   Nick
                 </Link>
-                <chakra.span
-                mx={1}
-                fontSize="sm"
-                color="gray.600"
-                _dark={{ color: "gray.300" }}
-              >
-                08 JUL 2022
-              </chakra.span>
             </Flex>
             </Flex>
             </Box>
