@@ -24,19 +24,19 @@ export class Post{
         if(titulo == '' || titulo == null || titulo == undefined){
             this.titulo = ''
         }else{
-            this.titulo = senha
+            this.titulo = titulo
         }
 
         if(texto == '' || texto == null || texto == undefined){
             this.texto = ''
         }else{
-            this.texto = senha
+            this.texto = texto
         }
 
         if(img == '' || img == null || img == undefined){
             this.img = ''
         }else{
-            this.img = senha
+            this.img = img
         }
     }
 
@@ -55,7 +55,7 @@ export class Post{
     async Insert(){
         try {
             const { rowsAffected } = con.query(`insert into postagem values ('${this.id_autor}',
-            '${this.tipo}','${this.titulo}', '${this.texto}', '${this.img}', 1)`)
+            '${this.tipo}', '${this.titulo}', '${this.texto}', '${this.img}', 1)`)
             return true
         } 
         catch (error) 

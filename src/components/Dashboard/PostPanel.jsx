@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Flex,
   Box,
@@ -20,12 +20,14 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import PostModal from './PostModal.jsx';
+import Axios from 'axios';
 
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [dataEdit, setDataEdit] = useState({});
 
   const borderColor = useColorModeValue("gray.200", "gray.600");
@@ -42,6 +44,20 @@ export default function Home() {
   });
 
   const asButton = useBreakpointValue({ base: IconButton, md: Button })
+
+  function LoadPosts() {
+    Axios.get("http://localhost:5000/post/get").then((res) => {
+      setPosts(res.data.reverse());
+    });
+  }
+
+  useEffect(() => {
+    LoadPosts();
+  }, []);
+
+  function DeletePost(id_postagem) {
+    Axios.delete(`http://localhost:5000/post/delete/${id_postagem}`).then(history.go(0));
+  }
 
   return (
     <Box maxW="9xl" mx={'auto'} pt={5} ml={{ base: 0, md: 60 }} px={{ base: 2, sm: 12, md: 17 }}>
@@ -90,7 +106,7 @@ export default function Home() {
             onClick={() => [setDataEdit({}), onOpen()]}
             title="Criar postagem"
           >
-            {isMdVersion && <Text>Criar postagem</Text>}
+            {isMdVersion && <Text>Nova postagem</Text>}
           </Button>
         </Flex>
 
@@ -102,18 +118,19 @@ export default function Home() {
           <Table size="sm">
             <Thead bg={tableHeadColor}>
               <Tr>
-                <Th>Título</Th>
-                {isMdVersion && <Th>Texto</Th>}
-                {isLgVersion && <Th>Data</Th>}
+                <Th>Autor</Th>
+                {isMdVersion && <Th>Tipo</Th>}
+                {isLgVersion &&<Th width="8">Título</Th>}
                 <Th width="8"></Th>
                 <Th width="8"></Th>
               </Tr>
             </Thead>
             <Tbody>
-                  <Tr>
-                    <Td borderColor={borderColor}></Td>
-                    {isMdVersion && <Td borderColor={borderColor}></Td>}
-                    {isLgVersion && <Td borderColor={borderColor}></Td>}
+                {posts.map((data, index) => (
+                  <Tr key={index}>
+                    <Td borderColor={borderColor}>{data.id_autor}</Td>
+                    {isMdVersion && <Td borderColor={borderColor}>{data.tipo}</Td>}
+                    {isLgVersion && <Td borderColor={borderColor}>{data.titulo}</Td>}
                     <Td borderColor={borderColor}>
                       <Button
                         as={asButton}
@@ -122,7 +139,7 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaEdit} fontSize="16"/>}
                         icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar postagem"
+                        title="Editar usuário"
                       >
                         {isMdVersion && <Text>Editar</Text>}
                       </Button>
@@ -135,12 +152,14 @@ export default function Home() {
                         fontSize="sm"
                         leftIcon={<Icon as={FaTrash} fontSize="16" />}
                         icon={<Icon as={FaTrash} fontSize="16"/>}
-                        title="Apagar postagem"
+                        onClick={()=>DeletePost(data.id_postagem)}
+                        title="Apagar usuário"
                       >
                         {isMdVersion && <Text>Apagar</Text>}
                       </Button>
                     </Td>
                   </Tr>
+                ))}
             </Tbody>
               <Tfoot>
                 <Tr>
