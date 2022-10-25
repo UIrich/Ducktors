@@ -105,7 +105,7 @@ export default function App(){
         <Link as={RouteLink} to='/admin/dashboard/groups'><NavItem icon={HiUserGroup}>Groups</NavItem></Link>
         <Link as={RouteLink} to='/admin/dashboard/posts'><NavItem icon={FaClipboardCheck}>Posts</NavItem></Link>
         <Divider mt={2}/>
-        <NavItem icon={FaUserTimes}>Log out</NavItem>
+        <Link as={RouteLink} to='/admin'><NavItem icon={FaUserTimes}>Log out</NavItem></Link>
       </Flex>
     </Box>
   );

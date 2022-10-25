@@ -13,19 +13,6 @@ export class UserController{
         } 
     }
 
-    static async GetUserProfile(req, res){
-        try {
-                const { nick, email, senha, stat } = req.body
-                const usuario = await new User(nick, email, senha, stat).GetProfile()
-                return res.status(200).json(usuario)
-        } 
-        catch (error) 
-        {
-            console.log('controller error ' + error) 
-            return res.status(500).json(error)
-        }
-    }
-
     static async InsertUser(req, res){
         try {
                 const { nick, email, senha } = req.body
@@ -69,8 +56,8 @@ export class UserController{
 
     static async LoginUser(req, res){
         try {
-            const { email, senha } = req.body
-            const LoginUser = await new User(email, senha).Login()
+            const { nick, email, senha, stat } = req.body
+            const LoginUser = await new User(1, nick, email, senha, stat).Login()
             return res.status(200).json(LoginUser)
         } 
         catch (error) {

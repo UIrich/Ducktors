@@ -5,15 +5,24 @@ const port = 5000
 const localhost = `http://localhost:${port}`
 
 export class AxiosUser{
-    async AxiosGet(){
-        Axios.get('http://localhost:5000/user/get').then((response) => {
-            setUsuarios(response.data)
-        })
+    async AxiosGet(nick){
+        try {
+            return (
+                (Axios.post(`http://localhost:5000/user/get`, {
+                nick: nick
+            })))
+
+        } 
+        catch (error) 
+        {
+            return error
+        }
+
     }
 
     async AxiosLogin(email, senha) {
         try {
-            const test = Axios.post(`${localhost}/user/login`, {
+             Axios.post(`${localhost}/user/login`, {
                     email: email,
                     senha: senha
                 }).then((response) =>{

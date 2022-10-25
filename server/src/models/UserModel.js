@@ -40,18 +40,6 @@ export class User{
         }
     }
 
-    async GetProfile(){
-        try {
-            const { recordset } = await con.query(`select id_user, nick, stat from usuarios where nick = '${this.nick}'`)
-            return recordset
-        } 
-        catch (error)
-        {
-            console.log('error model ' + error)
-            return error(error)
-        }
-    }
-
     async Insert(){
         try {
             const { rowsAffected } = con.query(`insert into usuarios values ('${this.nick}',
@@ -93,7 +81,7 @@ export class User{
     async Login(){
         try {
             const { recordset } = await con.query(`SELECT * FROM usuarios 
-                WHERE email = '${this.email}' and senha = '${this.senha}'`)
+                WHERE email = '${this.email}' and senha = '${this.senha}' and stat = 1`)
             if (recordset.length > 0)
                 return recordset
             else

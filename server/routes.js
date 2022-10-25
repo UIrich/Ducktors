@@ -14,7 +14,6 @@ routes.post("/user/insert", UserController.InsertUser);
 routes.put("/user/update/:id_user", UserController.UpdateUser)
 routes.delete("/user/delete/:id_user", UserController.DeleteUser);
 routes.post("/user/login", UserController.LoginUser);
-routes.put("/user/profile", UserController.GetUserProfile);
 
 routes.get("/community/get", CommunityController.GetCommunity);
 routes.post("/community/insert", CommunityController.InsertCommunity);
