@@ -1,6 +1,5 @@
 import React from 'react';
-import Article from './Article.js'
-import ArticleWithImage from './ArticleWithImage.js';
+import Article from './Article.jsx'
 import {
   Box,
   Heading,
@@ -20,12 +19,7 @@ const ArticleList = () => {
         flexDirection={{ base: 'column', sm: 'row' }}
         justifyContent="space-between">
       </Box>
-      <Heading as="h2" marginTop="5">
-        Postagem mais lida
-      </Heading>
-      <Divider marginTop="5" maxW="5xl"/>
       <Wrap spacing="30px" marginTop="5">
-      <ArticleWithImage/>
         <WrapItem width={{ base: '100%', sm: '45%', md: '45%', lg: '30%' }}>
           <Box w="100%">
             <Box borderRadius="lg" overflow="hidden">
@@ -39,11 +33,6 @@ const ArticleList = () => {
       <Divider marginTop="5" maxW="5xl" />
       <Wrap spacing="30px" marginTop="5">
         <SimpleGrid minChildWidth='250px' spacing="70px">
-                <Article/>
-                <Article/>
-                <Article/>
-                <Article/>
-                <Article/>
                 <Article/>
           </SimpleGrid>
       </Wrap>

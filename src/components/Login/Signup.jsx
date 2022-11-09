@@ -25,10 +25,6 @@ import {
 
     const navigate = useNavigate()
 
-    const HandleSubmit = (e) => {
-      e.preventDefault();
-  };
-
     const HandleChangeValues = (value) => {
         setValues(prevValue =>({
             ...prevValue,
@@ -37,6 +33,7 @@ import {
     };
 
     const HandleClickButton = () => {
+      preventDefault();
         Axios.post("http://localhost:5000/user/insert", {
           nick: values.nick,
           email: values.email,
@@ -56,7 +53,6 @@ import {
               Cadastrar
             </Heading>
           </Stack>
-          <form onSubmit={HandleSubmit}>
           <Box
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.700')}
@@ -106,7 +102,6 @@ import {
               </Stack>
             </Stack>
           </Box>
-          </form>
         </Stack>
       </Flex>
     );

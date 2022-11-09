@@ -4,7 +4,7 @@ import {
   Flex, 
   Image, 
   Link, 
-  chakra,
+  chakra, 
   Modal, 
   ModalOverlay, 
   ModalContent, 
@@ -14,24 +14,37 @@ import {
   ModalFooter, 
   Button,
   useColorModeValue,
-  useDisclosure,
+  useDisclosure 
 } from "@chakra-ui/react";
-import { LoremIpsum as Lorem } from 'react-lorem-ipsum';
-
 import PostImage from '../../assets/image.svg';
+import Axios from 'axios';
+import { LoremIpsum as Lorem } from 'react-lorem-ipsum';
 import AvatarImage from '../../assets/duck.svg';
+import { useEffect, useState } from 'react';
 
-export default function ArticleWithImage(){
+export default function Article(){
   const { isOpen, onClose, onOpen } = useDisclosure();
-  return (
-      <Box
-        mx="auto"
-        rounded="lg"
+  
+  const [posts, setPosts] = useState([]);
+
+  function LoadPosts() {
+    Axios.get("http://localhost:5000/post/get").then((res) => {
+      setPosts(res.data.reverse());
+    });
+  }
+
+  useEffect(() => {
+    LoadPosts();
+  }, []);
+
+    return (
+        <Box
+        bg={useColorModeValue('white', 'gray.900')}
         borderRadius="lg" 
         overflow="hidden"
+        rounded="lg"
         boxShadow={'md'}
-        bg={useColorModeValue('white', 'gray.900')}
-        maxW="7xl"
+        maxW="6xl"
       >
         <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -63,47 +76,44 @@ export default function ArticleWithImage(){
           </ModalFooter>
         </ModalContent>
       </Modal>
-        <Image
-          transform="scale(1.0)"
-          roundedTop="lg"
-          w="5xl"
-          h={400}
-          fit="cover"
-          src={PostImage}
-          onClick={onOpen}
-          cursor={'pointer'}
-          alt="Article"
-          transition="0.3s ease-in-out"
+            <Image
+            transform="scale(1.0)"
+            src={PostImage}
+            alt="Image"
+            objectFit="contain"
+            width="100%"
+            onClick={onOpen}
+            cursor={'pointer'}
+            transition="0.3s ease-in-out"
             _hover={{
                     transform: 'scale(1.05)',
             }}
-        />
+            />
 
-        <Box p={6}>
-          <Box>
-            <chakra.span
-              fontSize="xs"
-              textTransform="uppercase"
-              color="brand.600"
-              _dark={{ color: "brand.400" }}
-            >
-              Tag
-            </chakra.span>
-            <Link
+          {posts.map((data) => (
+            <Box p={6}>
+            <Box>
+              <chakra.span
+                fontSize="xs"
+                textTransform="uppercase"
+                color="brand.600"
+                _dark={{ color: "brand.400" }}
+              >
+                {data.tipo}
+              </chakra.span>
+              <Link
               display="block"
               color="gray.800"
               _dark={{ color: "white" }}
               fontWeight="bold"
               fontSize="2xl"
               onClick={onOpen}
-              mt={2}
+              mt={1}
               _hover={{ color: "gray.600", textDecor: "underline" }}
             >
-              Lorem ipsum
+              {data.titulo}
             </Link>
-          </Box>
-
-          <Box mt={4}>
+            <Box mt={2}>
             <Flex alignItems="center">
               <Flex alignItems="center">
                 <Image
@@ -119,13 +129,16 @@ export default function ArticleWithImage(){
                   color="gray.700"
                   _dark={{ color: "gray.200" }}
                 >
-                  Nick
+                  {data.id_autor}
                 </Link>
-              </Flex>
             </Flex>
-          </Box>
-        </Box>
-      </Box>
-  );
+            </Flex>
+            </Box>
+            </Box>
+            </Box>
+            ))}
+            </Box>
+
+    );
 };
 

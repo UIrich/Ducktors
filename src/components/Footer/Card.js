@@ -12,7 +12,7 @@ import {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3}} maxChildWidth='6xl' spacing='3em'>
         <Box
           bg={useColorModeValue('white', 'gray.900')}
-          boxShadow={'2xl'}
+          boxShadow={'md'}
           rounded={'lg'}
           p={6}
           maxW="6xl"
@@ -36,7 +36,7 @@ import {
 
         <Box
           bg={useColorModeValue('white', 'gray.900')}
-          boxShadow={'2xl'}
+          boxShadow={'md'}
           rounded={'lg'}
           p={6}
           maxW="6xl"
@@ -60,7 +60,7 @@ import {
 
         <Box
           bg={useColorModeValue('white', 'gray.900')}
-          boxShadow={'2xl'}
+          boxShadow={'md'}
           rounded={'lg'}
           p={6}
           maxW="6xl"
@@ -84,7 +84,7 @@ import {
 
         <Box
           bg={useColorModeValue('white', 'gray.900')}
-          boxShadow={'2xl'}
+          boxShadow={'md'}
           rounded={'lg'}
           p={6}
           maxW="6xl"
@@ -108,7 +108,7 @@ import {
         
         <Box
           bg={useColorModeValue('white', 'gray.900')}
-          boxShadow={'2xl'}
+          boxShadow={'md'}
           rounded={'lg'}
           p={6}
           maxW="6xl"
