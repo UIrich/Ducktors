@@ -29,7 +29,7 @@
 </details>
 
 ## About
-This project is about my thesis done together with my friends.
+This old project version is about my thesis done together with my friends.
 
 ## Built with
 
