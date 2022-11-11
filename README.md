@@ -1,14 +1,14 @@
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/UIrich/Ducktors?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/UIrich/OldDucktors?color=%2304D361">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/UIrich/Ducktors">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/UIrich/OldDucktors">
   
   <a href="https://github.com/UIrich/Ducktors/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/UIrich/Ducktors">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/UIrich/OldDucktors">
   </a>
     
    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/UIrich/Ducktors/LICENSE.md">
+   <a href="https://github.com/UIrich/OldDucktors/LICENSE.md">
   </a>
 
 </p>
