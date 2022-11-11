@@ -41,8 +41,8 @@ This old project version is about my thesis done together with my friends.
 
 ## Development
 ```bash
-$ git clone https://github.com/UIrich/Ducktors.git
-$ cd Ducktors
+$ git clone https://github.com/UIrich/OldDucktors.git
+$ cd OldDucktors
 $ npm install
 $ npm start
 ```
