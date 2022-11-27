@@ -29,7 +29,7 @@
 </details>
 
 ## About
-This old project version is about my thesis done together with my friends.
+This is a old project version about my thesis done together with my friends.
 
 ## Built with
 
@@ -41,8 +41,8 @@ This old project version is about my thesis done together with my friends.
 
 ## Development
 ```bash
-$ git clone https://github.com/UIrich/OldDucktors.git
-$ cd OldDucktors
+$ git clone https://github.com/UIrich/Olducktors.git
+$ cd Olducktors
 $ npm install
 $ npm start
 ```
