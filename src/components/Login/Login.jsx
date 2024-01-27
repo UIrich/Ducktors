@@ -28,7 +28,7 @@ import {
 
     const HandleClickButton = () => {
       if(!values.email || !values.senha){
-        console.error();
+        console.error("Certifique de que preencheu todos os campos!");
     } else {
         new AxiosUser().AxiosLogin(values.email, values.senha)
     }
@@ -52,11 +52,11 @@ import {
             <Stack spacing={4}>
               <FormControl>
                 <FormLabel>E-mail</FormLabel>
-                <Input onChange={HandleChangeValues} type="email" autoComplete="current-email" name="email" id="email" placeholder="E-mail"/>
+                <Input type="email" name="email" id="email" placeholder="E-mail" maxlength="30" onChange={HandleChangeValues} />
               </FormControl>
               <FormControl>
                 <FormLabel>Senha</FormLabel>
-                <Input onClick={HandleChangeValues} type="password" autoComplete="current-password" name="senha" id="senha" placeholder="Senha"/>
+                <Input type="password" name="senha" id="senha" placeholder="Senha" maxlength="128" onChange={HandleChangeValues} />
               </FormControl>
               <Stack spacing={10}>
                 <Stack
@@ -64,11 +64,10 @@ import {
                   align={'start'}
                   justify={'space-between'}>
                   <Checkbox>Lembre-me</Checkbox>
-                  <Link as={RouteLink} to='/forgotpassword' color={'blue.400'}>Esqueceu a senha?</Link>
                 </Stack>
                 <Button
                   type="button"
-                  onClick={()=>HandleClickButton()} 
+                  onClick={() => HandleClickButton()}
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{

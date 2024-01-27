@@ -12,7 +12,7 @@ import {
 
 const ArticleList = () => {
   return (
-    <Container maxW={'6xl'} p="12">
+    <Container maxW={'4xl'} p="12">
       <Box
         marginTop={{ base: '1', sm: '5' }}
         display="flex"
@@ -30,7 +30,7 @@ const ArticleList = () => {
       <Heading as="h2" marginTop="5">
         Postagens recentes
       </Heading>
-      <Divider marginTop="5" maxW="5xl" />
+      <Divider marginTop="5" maxW="3xl" />
       <Wrap spacing="30px" marginTop="5">
         <SimpleGrid minChildWidth='250px' spacing="70px">
                 <Article/>

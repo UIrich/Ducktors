@@ -33,7 +33,6 @@ import {
     };
 
     const HandleClickButton = () => {
-      preventDefault();
         Axios.post("http://localhost:5000/user/insert", {
           nick: values.nick,
           email: values.email,
@@ -61,16 +60,16 @@ import {
             <Stack spacing={4}>
                   <FormControl isRequired>
                     <FormLabel>Nick</FormLabel>
-                    <Input onChange={HandleChangeValues} type="text" autoComplete="username" name="nick" id="nick" placeholder='Nick'/>
+                    <Input onChange={HandleChangeValues} type="text" autoComplete="username" maxlength="25" name="nick" id="nick" placeholder='Nick'/>
                   </FormControl>
               <FormControl isRequired>
                 <FormLabel>E-mail</FormLabel>
-                <Input onChange={HandleChangeValues} type="email" autoComplete="current-email" name="email" id="email" placeholder="E-mail"/>
+                <Input onChange={HandleChangeValues} type="email" autoComplete="current-email" maxlength="30" name="email" id="email" placeholder="E-mail"/>
               </FormControl>
               <FormControl isRequired>
                 <FormLabel>Senha</FormLabel>
                 <InputGroup>
-                  <Input onChange={HandleChangeValues} type={showPassword ? 'text' : 'password'} autoComplete="current-password" name="senha" id="senha" placeholder='Senha'/>
+                  <Input onChange={HandleChangeValues} type={showPassword ? 'text' : 'password'} autoComplete="current-password" maxlength="128" name="senha" id="senha" placeholder='Senha'/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}

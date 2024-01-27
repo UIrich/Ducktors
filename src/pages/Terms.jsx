@@ -1,19 +1,19 @@
-import Navbar from '../components/Navbar/Navbar.js';
+import Navbar from '../components/Navbar/Navbar.jsx';
 import Footer from '../components/Footer/Footer.tsx';
-import PrivacyContainer from '../components/Footer/Privacy.tsx';
+import TermsContainer from '../components/Footer/Terms.tsx';
 import Carousel from '../components/Carousel/Carousel.tsx';
 import { ChakraProvider } from "@chakra-ui/react";
 
-function Privacy() {
+function Terms() {
     return (
         <ChakraProvider>
         <Navbar/>
         <Carousel/>
-        <PrivacyContainer/>
+        <TermsContainer/>
         <Footer/>
         </ChakraProvider>
 
     );
 }
 
-export default Privacy;
+export default Terms;

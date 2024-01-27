@@ -8,9 +8,25 @@ import {
     Stack,
     Image,
   } from '@chakra-ui/react';
-import React from 'react';
-  
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
   export default function SplitScreen() {
+    const [values, setValues] = useState();
+
+    const navigate = useNavigate()
+
+    const HandleChangeValues = (value) => {
+        setValues(prevValue =>({
+            ...prevValue,
+            [value.target.name]: value.target.value,
+        }))
+    };
+
+    const HandleClickButton = () => {
+        navigate('/admin/dashboard')
+}
+
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
@@ -18,11 +34,11 @@ import React from 'react';
             <Heading fontSize={'2xl'}>Faça acesso na sua conta</Heading>
             <FormControl>
               <FormLabel>E-mail</FormLabel>
-              <Input type="email" placeholder="E-mail"/>
+              <Input type="email" name="email" id="email" placeholder="E-mail" onChange={HandleChangeValues} />
             </FormControl>
             <FormControl>
               <FormLabel>Senha</FormLabel>
-              <Input type="password" placeholder="Senha"/>
+              <Input type="password" name="senha" id="senha" placeholder="Senha" onChange={HandleChangeValues} />
             </FormControl>
             <Stack spacing={6}>
               <Stack
@@ -30,7 +46,7 @@ import React from 'react';
                 align={'start'}
                 justify={'space-between'}>
               </Stack>
-              <Button colorScheme={'blue'} variant={'solid'}>
+              <Button type="button" colorScheme={'blue'} onClick={() => HandleClickButton()} variant={'solid'}>
                 Logar
               </Button>
             </Stack>

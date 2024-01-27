@@ -30,15 +30,15 @@ export default function CaptionCarousel() {
   const cards = [
     {
       image:
-        "https://i.imgur.com/X8D35k1.png",
+        "https://i.imgur.com/LF8CIdP.png",
     },
     {
       image:
-        "https://i.imgur.com/JcikiNg.png",
+        "https://i.imgur.com/7yWhdWN.png",
     },
     {
       image:
-      "https://i.imgur.com/GrmNA1n.png"
+      "https://i.imgur.com/vlYND9E.png"
     },
   ];
 

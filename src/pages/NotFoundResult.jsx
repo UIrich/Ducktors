@@ -1,4 +1,4 @@
-import NotFound from '../components/Info/NotFound.tsx';
+import NotFound from '../components/Info/NotFound.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function NotFoundResult() {

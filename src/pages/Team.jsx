@@ -1,19 +1,19 @@
-import Navbar from '../components/Navbar/Navbar.js';
+import Navbar from '../components/Navbar/Navbar.jsx';
 import Footer from '../components/Footer/Footer.tsx';
-import AboutContainer from '../components/Footer/About.tsx';
+import TeamContainer from '../components/Footer/Team.tsx';
 import Carousel from '../components/Carousel/Carousel.tsx';
 import { ChakraProvider } from "@chakra-ui/react";
 
-function About() {
+function Team() {
     return (
         <ChakraProvider>
         <Navbar/>
         <Carousel/>
-        <AboutContainer/>
+        <TeamContainer/>
         <Footer/>
         </ChakraProvider>
 
     );
 }
 
-export default About;
+export default Team;

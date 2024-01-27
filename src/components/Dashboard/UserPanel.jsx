@@ -132,17 +132,6 @@ export default function Home() {
                     {isMdVersion && <Td borderColor={borderColor}>{data.email}</Td>}
                     {isLgVersion && <Td borderColor={borderColor}></Td>}
                     <Td borderColor={borderColor}>
-                      <Button
-                        as={asButton}
-                        variant="outline"
-                        size="sm"
-                        fontSize="sm"
-                        leftIcon={<Icon as={FaEdit} fontSize="16"/>}
-                        icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar usuário"
-                      >
-                        {isMdVersion && <Text>Editar</Text>}
-                      </Button>
                     </Td>
                     <Td borderColor={borderColor}>
                       <Button

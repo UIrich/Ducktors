@@ -46,6 +46,8 @@ const UserModal = ({ isOpen, onClose }) => {
                 <FormLabel>Nick</FormLabel>
                 <Input
                   type="text"
+                  placeholder="Nick"
+                  maxlength="25"
                   name="nick"
                   onChange={HandleChangeValues}
                 />
@@ -54,6 +56,8 @@ const UserModal = ({ isOpen, onClose }) => {
                 <FormLabel>E-mail</FormLabel>
                 <Input
                   type="email"
+                  placeholder="E-mail"
+                  maxlength="30"
                   name="email"
                   onChange={HandleChangeValues}
                 />
@@ -62,6 +66,8 @@ const UserModal = ({ isOpen, onClose }) => {
                 <FormLabel>Senha</FormLabel>
                 <Input
                   type="password"
+                  placeholder="Senha"
+                  maxlength="128"
                   name="senha"
                   onChange={HandleChangeValues}
                 />

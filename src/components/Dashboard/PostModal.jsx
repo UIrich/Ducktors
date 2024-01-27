@@ -48,6 +48,7 @@ const PostModal = ({ isOpen, onClose }) => {
                 <FormLabel>Autor</FormLabel>
                 <Input
                   type="text"
+                  placeholder="Autor"
                   name="id_autor"
                   onChange={HandleChangeValues}
                 />
@@ -56,6 +57,7 @@ const PostModal = ({ isOpen, onClose }) => {
                 <FormLabel>Tipo</FormLabel>
                 <Input
                   type="text"
+                  placeholder="Tipo"
                   name="tipo"
                   onChange={HandleChangeValues}
                 />
@@ -64,6 +66,7 @@ const PostModal = ({ isOpen, onClose }) => {
                 <FormLabel>Título</FormLabel>
                 <Input
                   type="text"
+                  placeholder="Título"
                   name="titulo"
                   onChange={HandleChangeValues}
                 />
@@ -72,14 +75,16 @@ const PostModal = ({ isOpen, onClose }) => {
                 <FormLabel>Texto</FormLabel>
                 <Input
                   type="text"
+                  placeholder="Texto"
                   name="texto"
                   onChange={HandleChangeValues}
                 />
               </Box>
               <Box>
-                <FormLabel>Título</FormLabel>
+                <FormLabel>Imagem</FormLabel>
                 <Input
-                  type="file"
+                  type="text"
+                  placeholder="Imagem"
                   name="img"
                   onChange={HandleChangeValues}
                 />

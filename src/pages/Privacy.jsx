@@ -1,19 +1,19 @@
-import Navbar from '../components/Navbar/Navbar.js';
+import Navbar from '../components/Navbar/Navbar.jsx';
 import Footer from '../components/Footer/Footer.tsx';
-import SecurityContainer from '../components/Footer/Security.tsx';
+import PrivacyContainer from '../components/Footer/Privacy.tsx';
 import Carousel from '../components/Carousel/Carousel.tsx';
 import { ChakraProvider } from "@chakra-ui/react";
 
-function Security() {
+function Privacy() {
     return (
         <ChakraProvider>
         <Navbar/>
         <Carousel/>
-        <SecurityContainer/>
+        <PrivacyContainer/>
         <Footer/>
         </ChakraProvider>
 
     );
 }
 
-export default Security;
+export default Privacy;

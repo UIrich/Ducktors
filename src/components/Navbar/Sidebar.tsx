@@ -154,7 +154,6 @@ export default function App(){
               </Button>
             <Avatar
               size="sm"
-              name="Admin"
               rounded={'full'}
               src="https://i.imgur.com/gcCkdGg.png"
               cursor="pointer"

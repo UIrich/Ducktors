@@ -44,6 +44,8 @@ import {
                   <FormLabel>Nome</FormLabel>
                   <Input
                     type="text"
+                    maxlength="30"
+                    placeholder="Nome"
                     name="nome"
                     onChange={HandleChangeValues}
                   />

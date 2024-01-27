@@ -22,7 +22,7 @@ export class AxiosUser{
 
     async AxiosLogin(email, senha) {
         try {
-             Axios.post(`${localhost}/user/login`, {
+            Axios.post(`${localhost}/user/login`, {
                     email: email,
                     senha: senha
                 }).then((response) =>{
@@ -30,17 +30,19 @@ export class AxiosUser{
                         if (email == response.data[0].email && senha == response.data[0].senha){
                             localStorage.setItem('UserConnection', JSON.stringify(response.data[0]))
                             window.location.replace('/', {replace: true})
-                        } else {
-                            AppContext.test = false
+                        } else{
+                            AppContext.teste = false
                         }
                     } else {
-                        alert('anger the phoenix, and feel its talons')
+                        alert('E-mail ou senha incorreto.')
                     }
             })
 
         }
-        catch (err) {
-           alert(err)
+        catch(error)
+        {
+           return(error)
         }
+
     }
 }

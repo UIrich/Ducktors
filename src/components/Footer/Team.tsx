@@ -6,7 +6,7 @@ import {
   Wrap,
   Container,
 } from '@chakra-ui/react';
-import Card from './Card.js'
+import Card from './Card'
 
 const Team = () => {
   return (

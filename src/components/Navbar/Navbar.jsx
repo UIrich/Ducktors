@@ -14,7 +14,7 @@ import {
   MenuList,
   useColorMode,
 } from '@chakra-ui/react';
-import { getToken } from '../../contexts/TokenAuth.jsx';
+import { getToken, removeToken } from '../../contexts/TokenAuth.jsx';
 import { Link as RouteLink } from "react-router-dom";
 import { QuestionIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import AvatarImage from '../../assets/duck.svg';
@@ -43,6 +43,7 @@ export default function Nav() {
           fontSize={'sm'}
           fontWeight={400}
           variant={'link'}
+          onClick={removeToken}
           href={'/'}>
           Sair
         </Button>

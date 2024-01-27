@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar/Navbar.js';
+import Navbar from '../components/Navbar/Navbar.jsx';
 import Footer from '../components/Footer/Footer.tsx';
 import Article from '../components/Section/Section.jsx';
 import Carousel from '../components/Carousel/Carousel.tsx';

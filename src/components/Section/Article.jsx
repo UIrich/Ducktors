@@ -4,26 +4,15 @@ import {
   Flex, 
   Image, 
   Link, 
-  chakra, 
-  Modal, 
-  ModalOverlay, 
-  ModalContent, 
-  ModalHeader,  
-  ModalCloseButton,
-  ModalBody, 
-  ModalFooter, 
-  Button,
+  chakra,
+  Text, 
   useColorModeValue,
-  useDisclosure 
 } from "@chakra-ui/react";
-import PostImage from '../../assets/image.svg';
 import Axios from 'axios';
-import { LoremIpsum as Lorem } from 'react-lorem-ipsum';
 import AvatarImage from '../../assets/duck.svg';
 import { useEffect, useState } from 'react';
 
 export default function Article(){
-  const { isOpen, onClose, onOpen } = useDisclosure();
   
   const [posts, setPosts] = useState([]);
 
@@ -38,51 +27,22 @@ export default function Article(){
   }, []);
 
     return (
+      <>
+        {posts.map((data) => (
         <Box
-        bg={useColorModeValue('white', 'gray.900')}
-        borderRadius="lg" 
+        bg={useColorModeValue('gray.50', 'gray.900')}
+        borderRadius="md" 
         overflow="hidden"
         rounded="lg"
-        boxShadow={'md'}
+        value={data}
         maxW="6xl"
       >
-        <Modal size="xl" isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Lorem ipsum</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image
-            mb={5}
-            width="100%"
-            rounded="lg"
-            src={PostImage}
-            alt="Avatar"
-            />
-          <Lorem count={2} />
-          </ModalBody>
-          <ModalFooter>
-            <Button 
-            color={'white'} 
-            bg='blue.400' 
-            mr={3} 
-            onClick={onClose}
-            _hover={{
-              bg: 'blue.600',
-            }}
-            >
-              Fechar
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
             <Image
             transform="scale(1.0)"
-            src={PostImage}
+            src={data.img}
             alt="Image"
             objectFit="contain"
             width="100%"
-            onClick={onOpen}
             cursor={'pointer'}
             transition="0.3s ease-in-out"
             _hover={{
@@ -90,7 +50,6 @@ export default function Article(){
             }}
             />
 
-          {posts.map((data) => (
             <Box p={6}>
             <Box>
               <chakra.span
@@ -101,13 +60,15 @@ export default function Article(){
               >
                 {data.tipo}
               </chakra.span>
+              <Text mt={2} color={'brand.600'}>
+              {data.texto}
+            </Text>
               <Link
               display="block"
               color="gray.800"
               _dark={{ color: "white" }}
               fontWeight="bold"
               fontSize="2xl"
-              onClick={onOpen}
               mt={1}
               _hover={{ color: "gray.600", textDecor: "underline" }}
             >
@@ -136,9 +97,9 @@ export default function Article(){
             </Box>
             </Box>
             </Box>
-            ))}
             </Box>
-
+            ))}
+            </>
     );
 };
 

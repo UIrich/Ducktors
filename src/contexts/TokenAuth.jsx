@@ -1,6 +1,3 @@
-import Axios from 'axios';
-import { useState } from 'react';
-
 export const Token = 'UserConnection';
 
 export function getToken(){
@@ -9,8 +6,7 @@ export function getToken(){
     return user
 }
 
-export function TestAxios(nick){
-        return (Axios.post(`http://localhost:5000/user/profile`, {
-            nick: nick
-        }))
+export function removeToken(){
+    let recup = localStorage.removeItem(Token)
+    window.location.replace('/')
 }

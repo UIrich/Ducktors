@@ -10,7 +10,6 @@ function Users() {
         <UserPanel/>
     </ChakraProvider>
     </div>
-
     );
 }
 

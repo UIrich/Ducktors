@@ -123,17 +123,6 @@ export default function Home() {
                     <Td borderColor={borderColor}>{data.nome}</Td>
                     {isMdVersion && <Td borderColor={borderColor}></Td>}
                     <Td borderColor={borderColor}>
-                      <Button
-                        as={asButton}
-                        variant="outline"
-                        size="sm"
-                        fontSize="sm"
-                        leftIcon={<Icon as={FaEdit} fontSize="16"/>}
-                        icon={<Icon as={FaEdit} fontSize="16"/>}
-                        title="Editar grupo"
-                      >
-                        {isMdVersion && <Text>Editar</Text>}
-                      </Button>
                     </Td>
                     <Td borderColor={borderColor}>
                       <Button

@@ -26,7 +26,6 @@ import Posts from './pages/admin/Posts';
 import Groups from './pages/admin/Groups';
 import Users from './pages/admin/Users';
 
-
 export function AppRoutes() {
     return (
         <BrowserRouter>
